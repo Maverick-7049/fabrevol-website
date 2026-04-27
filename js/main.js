@@ -160,12 +160,24 @@
       const btn = form.querySelector('[type=submit]');
       btn.textContent = 'Sending…';
       btn.disabled = true;
-      setTimeout(() => {
-        document.getElementById('form-success').style.display = 'block';
-        form.reset();
+      fetch('https://formspree.io/f/mbdqvlnk', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(res => {
+        if (res.ok) {
+          document.getElementById('form-success').style.display = 'block';
+          form.reset();
+        } else {
+          alert('Something went wrong. Please email us directly at Yash.jhanwar@fabrevol.com');
+        }
+      })
+      .catch(() => alert('Network error. Please email us directly at Yash.jhanwar@fabrevol.com'))
+      .finally(() => {
         btn.textContent = 'Send Enquiry';
         btn.disabled = false;
-      }, 1000);
+      });
     });
     form.querySelectorAll('[required]').forEach(f => {
       f.addEventListener('input', () => {
