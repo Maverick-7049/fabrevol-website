@@ -90,19 +90,18 @@ p  { color: var(--text-muted); line-height: 1.75; }
 }
 
 /* Logo */
-.logo { display: flex; flex-direction: column; align-items: flex-start; flex-shrink: 0; gap: 0.2rem; }
-.logo img { height: 76px; width: auto; }
+.logo { display: flex; flex-direction: row; align-items: center; flex-shrink: 0; gap: 0.875rem; text-decoration: none; }
+.logo img { height: 68px; width: auto; }
 .logo-sub {
-  font-size: 0.58rem;
-  color: var(--accent);
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  padding-left: 2px;
-  border-top: 1px solid var(--gray-100);
-  padding-top: 0.25rem;
-  margin-top: 0.05rem;
-  white-space: nowrap;
+  line-height: 1.7;
+  border-left: 1px solid var(--gray-200);
+  padding-left: 0.875rem;
+  max-width: 90px;
 }
 
 /* Nav links */
@@ -535,7 +534,7 @@ textarea.form-control { min-height: 140px; resize: vertical; }
 .footer { background: var(--primary-dark); color: white; padding-top: 5rem; }
 .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; padding-bottom: 4rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .footer__brand p { color: rgba(255,255,255,0.5); font-size: 0.875rem; line-height: 1.75; margin-top: 1rem; max-width: 26ch; }
-.footer .logo-sub { color: rgba(255,255,255,0.45); border-top-color: rgba(255,255,255,0.12); }
+.footer .logo-sub { color: rgba(255,255,255,0.45); border-left-color: rgba(255,255,255,0.15); }
 .footer__heading { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1.25rem; }
 .footer__links { display: flex; flex-direction: column; gap: 0.625rem; }
 .footer__links a { font-size: 0.875rem; color: rgba(255,255,255,0.6); transition: color 0.2s; }
