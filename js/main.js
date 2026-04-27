@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
+  /* ── Lucide icons ── */
+  if (window.lucide) window.lucide.createIcons();
+
   /* ── Active nav link ── */
   const path = window.location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
   document.querySelectorAll('.nav-link').forEach(link => {
