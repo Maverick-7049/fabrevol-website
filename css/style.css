@@ -207,8 +207,31 @@ p  { color: var(--text-muted); line-height: 1.55; }
   z-index: 999;
 }
 .mobile-nav.open { display: flex; }
-.mobile-nav .nav-link { font-size: 1.125rem; padding: 1rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); border-radius: 0; }
-.mobile-nav .btn-nav  { margin-top: 1rem; text-align: center; background: var(--gradient); border: none; padding: 1rem; border-radius: var(--radius-sm); }
+.mobile-nav .nav-link {
+  font-size: 1.125rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-radius: 0;
+  color: white;
+  font-weight: 600;
+}
+.mobile-nav .nav-link:hover { background: rgba(255,255,255,0.08); color: white; }
+.mobile-nav .nav-dropdown__menu {
+  position: static;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  box-shadow: none;
+  background: rgba(255,255,255,0.06);
+  border: none;
+  border-radius: var(--radius-sm);
+  margin: 0.25rem 0 0.5rem 0;
+  padding: 0.25rem;
+}
+.mobile-nav .nav-dropdown__menu a { color: rgba(255,255,255,0.8); font-size: 0.9rem; padding: 0.6rem 1rem; }
+.mobile-nav .nav-dropdown__menu a:hover { background: rgba(255,255,255,0.1); color: white; }
+.mobile-nav .nav-dropdown__chevron { display: none; }
+.mobile-nav .btn-nav { margin-top: 1rem; text-align: center; background: var(--gradient); border: none; padding: 1rem; border-radius: var(--radius-sm); color: white; font-weight: 700; }
 
 /* ─────────────────────────────────────────
    HERO (Full-bleed, image + overlay)
