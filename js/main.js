@@ -192,4 +192,27 @@
   const yr = document.getElementById('footer-year');
   if (yr) yr.textContent = new Date().getFullYear();
 
+  /* ── Footer logo — strip white background via canvas ── */
+  const footerLogoImg = document.querySelector('.footer .logo img');
+  if (footerLogoImg) {
+    const stripWhite = () => {
+      try {
+        const c = document.createElement('canvas');
+        c.width = footerLogoImg.naturalWidth;
+        c.height = footerLogoImg.naturalHeight;
+        const ctx = c.getContext('2d');
+        ctx.drawImage(footerLogoImg, 0, 0);
+        const id = ctx.getImageData(0, 0, c.width, c.height);
+        const d = id.data;
+        for (let i = 0; i < d.length; i += 4) {
+          if (d[i] > 230 && d[i+1] > 230 && d[i+2] > 230) d[i+3] = 0;
+        }
+        ctx.putImageData(id, 0, 0);
+        footerLogoImg.src = c.toDataURL('image/png');
+      } catch(e) {}
+    };
+    if (footerLogoImg.complete && footerLogoImg.naturalWidth) stripWhite();
+    else footerLogoImg.addEventListener('load', stripWhite);
+  }
+
 })();
