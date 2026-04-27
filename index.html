@@ -5,1076 +5,285 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Fabrevol — Premium chemical distribution across India. Specialty silicones, agrochemical adjuvants, organofunctional silanes, flame retardants and more.">
   <title>Fabrevol — Chemical Distribution Reimagined</title>
-  <link rel="icon" type="image/jpeg" href="/assets/logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            slate:  { teal: '#2C4E5B' },
-            accent: { teal: '#4C859B' },
-          },
-          fontFamily: {
-            display: ['Montserrat', 'sans-serif'],
-            body:    ['Inter', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
-  <style>
-    /* ── Blueprint grid background ── */
-    .blueprint-bg {
-      background-color: #ffffff;
-      background-image:
-        linear-gradient(rgba(44,78,91,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(44,78,91,0.06) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-
-    /* ── Glassmorphism product card ── */
-    .glass-card {
-      background: rgba(255,255,255,0.72);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(44,78,91,0.12);
-      border-left: 4px solid #2C4E5B;
-    }
-    .glass-card:hover {
-      border-left-color: #4C859B;
-      box-shadow: 0 12px 40px rgba(44,78,91,0.14);
-      transform: translateY(-3px);
-    }
-
-    /* ── CTA gradient ── */
-    .btn-primary {
-      background: linear-gradient(135deg, #2C4E5B 0%, #4C859B 100%);
-    }
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #243f4a 0%, #3d6e82 100%);
-      box-shadow: 0 6px 24px rgba(44,78,91,0.35);
-    }
-
-    /* ── Hero gradient overlay ── */
-    .hero-overlay {
-      background: linear-gradient(135deg, rgba(44,78,91,0.97) 0%, rgba(76,133,155,0.85) 60%, rgba(44,78,91,0.60) 100%);
-    }
-
-    /* ── Smooth reveal ── */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-
-    /* ── Scrollable table wrapper ── */
-    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-
-    /* ── Table base ── */
-    .data-table { width: 100%; border-collapse: collapse; font-family: 'Inter', sans-serif; font-size: 0.875rem; }
-    .data-table thead tr { background: #2C4E5B; color: #ffffff; }
-    .data-table thead th { padding: 0.75rem 1rem; text-align: left; font-weight: 600; letter-spacing: 0.04em; white-space: nowrap; }
-    .data-table tbody tr { border-bottom: 1px solid #e8ecee; }
-    .data-table tbody tr:nth-child(even) { background: #F1F4F6; }
-    .data-table tbody tr:hover { background: rgba(76,133,155,0.08); }
-    .data-table tbody td { padding: 0.7rem 1rem; color: #2C4E5B; }
-
-    /* ── Nav active state ── */
-    .nav-link { position: relative; }
-    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #4C859B; transition: width 0.25s ease; }
-    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-
-    /* ── Mobile nav ── */
-    #mobile-menu { display: none; }
-    #mobile-menu.open { display: flex; }
-
-    /* ── Search highlight ── */
-    .search-hidden { display: none !important; }
-
-    /* ── Stats counter ── */
-    .stat-box { border-right: 1px solid rgba(255,255,255,0.2); }
-    .stat-box:last-child { border-right: none; }
-
-    /* ── Floating label on contact form ── */
-    .form-field { position: relative; }
-    .form-input { width: 100%; padding: 0.875rem 1rem; border: 1.5px solid #d0dde3; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.9375rem; color: #2C4E5B; background: #fff; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
-    .form-input:focus { border-color: #4C859B; box-shadow: 0 0 0 3px rgba(76,133,155,0.15); }
-    .form-input.error { border-color: #e53e3e; }
-
-    /* ── Category tab active ── */
-    .cat-tab.active { background: #2C4E5B; color: #fff; }
-    .cat-tab { transition: background 0.2s, color 0.2s; }
-
-    /* ── Orbital ring decoration ── */
-    @keyframes orbit-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    .orbit-ring { animation: orbit-spin 18s linear infinite; transform-origin: center; }
-  </style>
+  <link rel="icon" href="/assets/logo.png">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
+<body>
 
-<body class="font-body text-[#2C4E5B] antialiased">
-
-<!-- ══════════════════════════════════════════════
-     HEADER / NAV
-══════════════════════════════════════════════ -->
-<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 lg:h-20">
-
-      <!-- Logo -->
-      <a href="#home" class="flex items-center gap-3 flex-shrink-0">
-        <img src="/assets/logo.png" alt="Fabrevol" class="h-10 w-auto rounded bg-white p-1.5">
-        <div class="flex flex-col leading-tight">
-          <span class="font-display font-extrabold text-lg tracking-tight text-white drop-shadow">FABREVOL</span>
-          <span class="text-white/60 text-xs font-medium tracking-wide">Rangwala Group of Companies</span>
-        </div>
+<!-- ── HEADER ── -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header__inner">
+      <a href="/index.html" class="logo">
+        <img src="/assets/logo.png" alt="Fabrevol">
+        <span class="logo-sub">Rangwala Group of Companies</span>
       </a>
-
-      <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-8">
-        <a href="#home"     class="nav-link text-white/85 hover:text-white font-medium text-sm transition-colors">Home</a>
-        <a href="#about"    class="nav-link text-white/85 hover:text-white font-medium text-sm transition-colors">About</a>
-        <a href="#products" class="nav-link text-white/85 hover:text-white font-medium text-sm transition-colors">Products</a>
-        <a href="#contact"  class="nav-link text-white/85 hover:text-white font-medium text-sm transition-colors">Contact</a>
-        <a href="#contact" class="btn-primary text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all duration-200">
-          Enquire Now
-        </a>
+      <nav class="nav">
+        <a href="/index.html"    class="nav-link">Home</a>
+        <a href="/about.html"   class="nav-link">About</a>
+        <a href="/products.html" class="nav-link">Products</a>
+        <a href="/contact.html" class="nav-link">Contact</a>
+        <a href="/contact.html" class="btn-nav" style="margin-left:0.5rem;">Enquire Now</a>
       </nav>
-
-      <!-- Hamburger -->
-      <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Open menu" aria-expanded="false">
-        <span class="ham-bar block w-6 h-0.5 bg-white rounded transition-transform duration-300"></span>
-        <span class="ham-bar block w-6 h-0.5 bg-white rounded transition-opacity duration-300"></span>
-        <span class="ham-bar block w-6 h-0.5 bg-white rounded transition-transform duration-300"></span>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span class="ham-bar"></span><span class="ham-bar"></span><span class="ham-bar"></span>
       </button>
     </div>
   </div>
-
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="md:hidden flex-col bg-[#2C4E5B] px-6 pb-6 pt-2 gap-1 border-t border-white/10">
-    <a href="#home"     class="block py-3 text-white/85 hover:text-white font-medium border-b border-white/10">Home</a>
-    <a href="#about"    class="block py-3 text-white/85 hover:text-white font-medium border-b border-white/10">About</a>
-    <a href="#products" class="block py-3 text-white/85 hover:text-white font-medium border-b border-white/10">Products</a>
-    <a href="#contact"  class="block py-3 text-white/85 hover:text-white font-medium border-b border-white/10">Contact</a>
-    <a href="#contact"  class="btn-primary text-white text-center font-semibold px-5 py-3 rounded-lg mt-3 block transition-all">Enquire Now</a>
-  </div>
 </header>
 
+<!-- Mobile nav -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="/index.html"    class="nav-link">Home</a>
+  <a href="/about.html"   class="nav-link">About</a>
+  <a href="/products.html" class="nav-link">Products</a>
+  <a href="/contact.html" class="nav-link">Contact</a>
+  <a href="/contact.html" class="btn-nav">Enquire Now</a>
+</div>
 
-<!-- ══════════════════════════════════════════════
-     HERO
-══════════════════════════════════════════════ -->
-<section id="home" class="relative min-h-screen flex items-center overflow-hidden blueprint-bg">
-
-  <!-- Dark overlay -->
-  <div class="hero-overlay absolute inset-0"></div>
-
-  <!-- Blueprint grid still faintly visible on top -->
-  <div class="absolute inset-0 blueprint-bg opacity-20"></div>
-
-  <!-- Decorative orbital SVG (top-right) -->
-  <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[480px] h-[480px] opacity-10 pointer-events-none hidden lg:block">
-    <svg viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g class="orbit-ring">
-        <ellipse cx="240" cy="240" rx="220" ry="76" stroke="white" stroke-width="1.5" transform="rotate(-30 240 240)"/>
-        <ellipse cx="240" cy="240" rx="220" ry="76" stroke="white" stroke-width="1"   transform="rotate(30 240 240)"/>
-        <ellipse cx="240" cy="240" rx="220" ry="76" stroke="white" stroke-width="0.7" transform="rotate(90 240 240)"/>
-        <circle cx="240" cy="240" r="22" fill="#2C4E5B" stroke="white" stroke-width="2"/>
-        <circle cx="458" cy="228" r="7" fill="white"/>
-        <circle cx="22"  cy="252" r="5" fill="white" opacity="0.6"/>
-      </g>
-    </svg>
-  </div>
-
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
-    <div class="max-w-2xl">
-      <!-- Eyebrow -->
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/25 bg-white/8 text-white/80 text-xs font-semibold tracking-widest uppercase mb-6 backdrop-blur-sm">
-        <span class="w-1.5 h-1.5 rounded-full bg-[#4C859B] inline-block"></span>
-        Chemical Distribution · Pune, India
-      </div>
-
-      <h1 class="font-display font-black text-white leading-tight mb-6" style="font-size: clamp(2.25rem, 6vw, 3.75rem);">
-        Chemical Distribution<br>
-        <span class="text-[#4C859B]">Reimagined.</span>
-      </h1>
-
-      <p class="text-white/72 text-lg leading-relaxed mb-8 max-w-xl">
-        Delivering high-purity specialty chemicals, advanced silicones, and performance adjuvants with unparalleled reliability and ancestral industry trust across India.
-      </p>
-
-      <div class="flex flex-wrap gap-4">
-        <a href="#products" class="btn-primary text-white font-semibold px-7 py-3.5 rounded-lg text-base transition-all duration-200 shadow-lg">
-          Explore Products →
-        </a>
-        <a href="#contact" class="border border-white/40 text-white font-semibold px-7 py-3.5 rounded-lg text-base hover:border-[#4C859B] hover:text-[#4C859B] transition-all duration-200">
-          Get in Touch
-        </a>
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero__bg" style="background-image:url('https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=1920&q=80')"></div>
+  <div class="hero__overlay"></div>
+  <div class="container">
+    <div class="hero__content reveal">
+      <h1>Chemical Distribution<br><span>Reimagined.</span></h1>
+      <p>Delivering high-purity specialty chemicals, advanced silicones, and performance adjuvants with unparalleled reliability and ancestral industry trust across India.</p>
+      <div class="hero__actions">
+        <a href="/products.html" class="btn btn--primary btn--lg">Explore Products</a>
+        <a href="/contact.html"  class="btn btn--outline btn--lg">Get in Touch</a>
       </div>
     </div>
   </div>
-
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40 text-xs">
-    <span class="tracking-widest uppercase">Scroll</span>
-    <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-  </div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════
-     STATS BAR
-══════════════════════════════════════════════ -->
-<div class="bg-[#2C4E5B] py-10">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="stat-box text-center px-4">
-        <div class="font-display font-black text-white text-4xl" data-target="65" data-suffix="+">0+</div>
-        <div class="text-white/60 text-xs tracking-widest uppercase mt-1.5">Years of Heritage</div>
+<!-- ── STATS ── -->
+<div class="stat-bar">
+  <div class="container">
+    <div class="stat-bar__grid">
+      <div class="stat-item">
+        <div class="stat-num"><span data-target="65" data-suffix="+">65+</span></div>
+        <div class="stat-label">Years of Heritage</div>
       </div>
-      <div class="stat-box text-center px-4">
-        <div class="font-display font-black text-white text-4xl" data-target="200" data-suffix="+">0+</div>
-        <div class="text-white/60 text-xs tracking-widest uppercase mt-1.5">Products</div>
+      <div class="stat-item">
+        <div class="stat-num"><span data-target="200" data-suffix="+">200+</span></div>
+        <div class="stat-label">Products</div>
       </div>
-      <div class="stat-box text-center px-4">
-        <div class="font-display font-black text-white text-4xl" data-target="6">0</div>
-        <div class="text-white/60 text-xs tracking-widest uppercase mt-1.5">Product Categories</div>
+      <div class="stat-item">
+        <div class="stat-num"><span data-target="6">6</span></div>
+        <div class="stat-label">Product Categories</div>
       </div>
-      <div class="text-center px-4">
-        <div class="font-display font-black text-white text-4xl" data-target="2022">1900</div>
-        <div class="text-white/60 text-xs tracking-widest uppercase mt-1.5">Est. in Pune</div>
+      <div class="stat-item">
+        <div class="stat-num">Pan<span> India</span></div>
+        <div class="stat-label">Distribution Reach</div>
       </div>
     </div>
   </div>
 </div>
 
-
-<!-- ══════════════════════════════════════════════
-     ABOUT
-══════════════════════════════════════════════ -->
-<section id="about" class="py-24 blueprint-bg">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-      <!-- Text -->
-      <div class="reveal">
-        <p class="text-[#4C859B] text-xs font-bold tracking-widest uppercase mb-3">Our Story</p>
-        <h2 class="font-display font-extrabold text-[#2C4E5B] leading-tight mb-6" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">
-          Six Decades of Trust.<br>A New Era of Innovation.
-        </h2>
-        <p class="text-[#2C4E5B]/75 leading-relaxed text-base mb-6">
-          FABREVOL represents the future of chemical logistics, built on a foundation of historical trust. Born from the prestigious <strong class="text-[#2C4E5B]">Rangwala Group</strong>, which has been pioneering chemical distribution since <strong class="text-[#2C4E5B]">1958 in Rajasthan</strong>, FABREVOL was established in <strong class="text-[#2C4E5B]">Pune in 2022</strong> by <strong class="text-[#2C4E5B]">Mr. Yash Jhanwar</strong> and <strong class="text-[#2C4E5B]">Mr. Rajendra Jhanwar</strong>.
-        </p>
-        <p class="text-[#2C4E5B]/75 leading-relaxed text-base mb-8">
-          Today, we combine decades of ancestral expertise with next-generation supply chain agility to revolutionize chemical distribution across <strong class="text-[#2C4E5B]">Maharashtra and Pan India</strong>.
-        </p>
-        <a href="#contact" class="btn-primary inline-block text-white font-semibold px-7 py-3.5 rounded-lg text-sm transition-all duration-200">
-          Partner With Us →
-        </a>
-      </div>
-
-      <!-- Values grid -->
-      <div class="grid grid-cols-2 gap-4 reveal reveal-delay-2">
-        <div class="glass-card rounded-xl p-5 transition-all duration-300 cursor-default">
-          <div class="text-2xl mb-3">🔬</div>
-          <h3 class="font-display font-bold text-[#2C4E5B] text-sm mb-1">Technical Expertise</h3>
-          <p class="text-[#2C4E5B]/65 text-xs leading-relaxed">Backed by decades of formulation and application knowledge across chemical categories.</p>
-        </div>
-        <div class="glass-card rounded-xl p-5 transition-all duration-300 cursor-default">
-          <div class="text-2xl mb-3">✅</div>
-          <h3 class="font-display font-bold text-[#2C4E5B] text-sm mb-1">Quality Assured</h3>
-          <p class="text-[#2C4E5B]/65 text-xs leading-relaxed">All products supplied with CoA, MSDS, and full compliance documentation.</p>
-        </div>
-        <div class="glass-card rounded-xl p-5 transition-all duration-300 cursor-default">
-          <div class="text-2xl mb-3">🚚</div>
-          <h3 class="font-display font-bold text-[#2C4E5B] text-sm mb-1">Reliable Supply</h3>
-          <p class="text-[#2C4E5B]/65 text-xs leading-relaxed">Pan-India distribution with agile logistics and consistent on-time delivery.</p>
-        </div>
-        <div class="glass-card rounded-xl p-5 transition-all duration-300 cursor-default">
-          <div class="text-2xl mb-3">🤝</div>
-          <h3 class="font-display font-bold text-[#2C4E5B] text-sm mb-1">Industry Trust</h3>
-          <p class="text-[#2C4E5B]/65 text-xs leading-relaxed">65+ years of cumulative heritage in the Indian chemical distribution landscape.</p>
-        </div>
-      </div>
-
-    </div>
+<!-- ── PRODUCT CATEGORIES ── -->
+<section style="padding-block:0;">
+  <div style="text-align:center; padding:5rem 1.5rem 3rem;">
+    <span class="label">Our Portfolio</span>
+    <h2 style="margin-bottom:1rem;">Six Specialised Categories</h2>
+    <p style="max-width:52ch; margin-inline:auto; color:var(--text-muted);">From high-purity silicone fluids to agricultural adjuvants and construction sealers — sourced from certified manufacturers with full technical documentation.</p>
   </div>
-</section>
 
+  <div class="cat-grid">
 
-<!-- ══════════════════════════════════════════════
-     PRODUCTS
-══════════════════════════════════════════════ -->
-<section id="products" class="py-24 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <!-- Section head -->
-    <div class="text-center mb-12 reveal">
-      <p class="text-[#4C859B] text-xs font-bold tracking-widest uppercase mb-3">Product Catalog</p>
-      <h2 class="font-display font-extrabold text-[#2C4E5B] mb-4" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">
-        Our Chemical Portfolio
-      </h2>
-      <p class="text-[#2C4E5B]/65 max-w-xl mx-auto text-base leading-relaxed">
-        Six specialized categories spanning industrial, agricultural, and specialty applications — all sourced from certified manufacturers.
-      </p>
-    </div>
-
-    <!-- Search -->
-    <div class="flex justify-center mb-10 reveal reveal-delay-1">
-      <div class="relative w-full max-w-lg">
-        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#4C859B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-        </svg>
-        <input id="product-search" type="text" placeholder="Search products, chemicals, CAS numbers…"
-          class="form-input pl-11 shadow-sm">
+    <a href="/products.html#silicone" class="cat-card">
+      <img class="cat-card__img" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=900&q=80" alt="Silicone Oils" loading="lazy">
+      <div class="cat-card__overlay"></div>
+      <div class="cat-card__body">
+        <span class="cat-card__num">Category 01</span>
+        <div class="cat-card__title">High-Purity Silicone Oils</div>
+        <div class="cat-card__desc">PDMS fluids in precision-calibrated viscosity grades (0.65–65,000 cSt) for industrial, pharma, and cosmetic applications.</div>
+        <span class="cat-card__arrow">View Details →</span>
       </div>
-    </div>
-
-    <!-- Category tabs -->
-    <div class="flex flex-wrap gap-2 justify-center mb-12 reveal reveal-delay-2" id="cat-tabs">
-      <button class="cat-tab active px-4 py-2 rounded-full border border-[#2C4E5B] text-sm font-semibold text-[#2C4E5B]" data-cat="all">All Categories</button>
-      <button class="cat-tab px-4 py-2 rounded-full border border-[#2C4E5B] text-sm font-semibold text-[#2C4E5B]" data-cat="siloxane">Silicone Oils</button>
-      <button class="cat-tab px-4 py-2 rounded-full border border-[#2C4E5B] text-sm font-semibold text-[#2C4E5B]" data-cat="agri">Agri Adjuvants</button>
-      <button class="cat-tab px-4 py-2 rounded-full border border-[#2C4E5B] text-sm font-semibold text-[#2C4E5B]" data-cat="rubber">Industrial Mold</button>
-      <button class="cat-tab px-4 py-2 rounded-full border border-[#2C4E5B] text-sm font-semibold text-[#2C4E5B]" data-cat="silane">Silanes</button>
-      <button class="cat-tab px-4 py-2 rounded-full border border-[#2C4E5B] text-sm font-semibold text-[#2C4E5B]" data-cat="fr">Flame Retardants</button>
-      <button class="cat-tab px-4 py-2 rounded-full border border-[#2C4E5B] text-sm font-semibold text-[#2C4E5B]" data-cat="construction">Construction</button>
-    </div>
-
-    <!-- ── CATEGORY 1: PDMS Silicone Oils ── -->
-    <div class="product-category mb-16 reveal" data-cat="siloxane">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="w-2 h-8 rounded bg-gradient-to-b from-[#2C4E5B] to-[#4C859B]"></div>
-        <div>
-          <p class="text-[#4C859B] text-xs font-bold tracking-widest uppercase">Category 1</p>
-          <h3 class="font-display font-bold text-[#2C4E5B] text-xl">High-Purity Linear Siloxanes (Silicone Oils)</h3>
-        </div>
-      </div>
-
-      <div class="glass-card rounded-2xl p-6 mb-4 searchable" data-searchtext="polydimethylsiloxane pdms silicone oil siliconization glass metal skin care medical dielectric coolant syringe needle">
-        <p class="text-sm text-[#2C4E5B]/70 mb-1"><strong class="text-[#2C4E5B]">Chemical:</strong> Polydimethylsiloxane (PDMS) Fluids — Full Industrial &amp; Pharma Range</p>
-        <p class="text-sm text-[#2C4E5B]/70 mb-5"><strong class="text-[#2C4E5B]">Description:</strong> Clear, colorless, odorless, and non-toxic fluids available in a precision-calibrated viscosity range.</p>
-
-        <div class="table-scroll rounded-xl overflow-hidden border border-[#2C4E5B]/10">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Grade / Viscosity (cSt)</th>
-                <th>Specific Gravity (25°C)</th>
-                <th>Refractive Index (25°C)</th>
-                <th>Flash Point (°C)</th>
-                <th>Surface Tension (dynes/cm)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Low:</strong> 0.65 to 10</td>
-                <td>0.760 – 0.930</td>
-                <td>1.375 – 1.400</td>
-                <td>&gt; 160</td>
-                <td>20.1</td>
-              </tr>
-              <tr>
-                <td><strong>Medium:</strong> 20 to 1000</td>
-                <td>0.950 – 0.970</td>
-                <td>1.400 – 1.403</td>
-                <td>&gt; 300</td>
-                <td>20.5 – 21.2</td>
-              </tr>
-              <tr>
-                <td><strong>High:</strong> 5000 to 65000</td>
-                <td>0.970 – 0.980</td>
-                <td>1.403 – 1.404</td>
-                <td>&gt; 300</td>
-                <td>21.3 – 21.5</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="mt-4 flex flex-wrap gap-2">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2C4E5B]/8 text-[#2C4E5B] text-xs font-medium">🏭 Siliconization of glass/metals</span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2C4E5B]/8 text-[#2C4E5B] text-xs font-medium">💆 Protective skin care films</span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2C4E5B]/8 text-[#2C4E5B] text-xs font-medium">⚡ Dielectric coolants</span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2C4E5B]/8 text-[#2C4E5B] text-xs font-medium">💉 Medical-grade lubrication</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── CATEGORY 2: Agri Adjuvants ── -->
-    <div class="product-category mb-16 reveal" data-cat="agri">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="w-2 h-8 rounded bg-gradient-to-b from-[#2C4E5B] to-[#4C859B]"></div>
-        <div>
-          <p class="text-[#4C859B] text-xs font-bold tracking-widest uppercase">Category 2</p>
-          <h3 class="font-display font-bold text-[#2C4E5B] text-xl">Agriculture Adjuvants &amp; Wetting Agents</h3>
-        </div>
-      </div>
-      <p class="text-[#2C4E5B]/65 text-sm mb-6">Focus: Enhancing bio-efficacy through advanced surface tension reduction.</p>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-5">
-
-        <div class="glass-card rounded-2xl p-5 transition-all duration-300 searchable" data-searchtext="trisiloxane ethoxylate super spreader adjuvant wetting foliar rain-fastness pesticide surface tension stomatal">
-          <div class="flex items-start justify-between mb-3">
-            <h4 class="font-display font-bold text-[#2C4E5B] text-sm leading-snug">Trisiloxane Ethoxylate<br><span class="text-[#4C859B] font-semibold">(Super-Spreader)</span></h4>
-            <span class="text-lg">🌿</span>
-          </div>
-          <div class="text-xs text-[#2C4E5B]/70 space-y-1 mb-3 font-mono bg-[#F1F4F6] rounded-lg p-3">
-            <div>100% Active</div>
-            <div>Surface Tension: &lt;22 mN/m</div>
-            <div>Rapid Stomatal Infiltration</div>
-          </div>
-          <p class="text-xs text-[#2C4E5B]/70 leading-relaxed">Maximizes foliar uptake and rain-fastness; reduces water volume requirements for pesticide application.</p>
-        </div>
-
-        <div class="glass-card rounded-2xl p-5 transition-all duration-300 searchable" data-searchtext="silicone polyether copolymer penetrant non-ionic systemic pesticide cuticular waxy crop">
-          <div class="flex items-start justify-between mb-3">
-            <h4 class="font-display font-bold text-[#2C4E5B] text-sm leading-snug">Silicone-Polyether Copolymer<br><span class="text-[#4C859B] font-semibold">(Penetrant)</span></h4>
-            <span class="text-lg">🧪</span>
-          </div>
-          <div class="text-xs text-[#2C4E5B]/70 space-y-1 mb-3 font-mono bg-[#F1F4F6] rounded-lg p-3">
-            <div>Non-ionic</div>
-            <div>High solubility</div>
-            <div>Low phytotoxicity</div>
-          </div>
-          <p class="text-xs text-[#2C4E5B]/70 leading-relaxed">Optimized for systemic pesticides to ensure uniform cuticular penetration on waxy-leaf crops.</p>
-        </div>
-
-        <div class="glass-card rounded-2xl p-5 transition-all duration-300 searchable" data-searchtext="non-ionic organic surfactant spreader alcohol ethoxylate eco-friendly sustainable wetting silicone sensitive">
-          <div class="flex items-start justify-between mb-3">
-            <h4 class="font-display font-bold text-[#2C4E5B] text-sm leading-snug">Non-Ionic Organic Surfactant<br><span class="text-[#4C859B] font-semibold">(Organic Spreader)</span></h4>
-            <span class="text-lg">🌱</span>
-          </div>
-          <div class="text-xs text-[#2C4E5B]/70 space-y-1 mb-3 font-mono bg-[#F1F4F6] rounded-lg p-3">
-            <div>Alcohol Ethoxylate based</div>
-            <div>Eco-friendly</div>
-          </div>
-          <p class="text-xs text-[#2C4E5B]/70 leading-relaxed">Sustainable alternative for uniform wetting in silicone-sensitive agricultural environments.</p>
-        </div>
-
-        <div class="glass-card rounded-2xl p-5 transition-all duration-300 searchable" data-searchtext="siloxane resin emulsion seed coating aqueous film germination dust-off active ingredients handling">
-          <div class="flex items-start justify-between mb-3">
-            <h4 class="font-display font-bold text-[#2C4E5B] text-sm leading-snug">Siloxane Resin Emulsion<br><span class="text-[#4C859B] font-semibold">(Seed Coating)</span></h4>
-            <span class="text-lg">🌾</span>
-          </div>
-          <div class="text-xs text-[#2C4E5B]/70 space-y-1 mb-3 font-mono bg-[#F1F4F6] rounded-lg p-3">
-            <div>Aqueous film-former</div>
-            <div>Breathable matrix</div>
-          </div>
-          <p class="text-xs text-[#2C4E5B]/70 leading-relaxed">Prevents dust-off of active ingredients during seed handling while maintaining high germination rates.</p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ── CATEGORY 3: Rubber & Die-Casting ── -->
-    <div class="product-category mb-16 reveal" data-cat="rubber">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="w-2 h-8 rounded bg-gradient-to-b from-[#2C4E5B] to-[#4C859B]"></div>
-        <div>
-          <p class="text-[#4C859B] text-xs font-bold tracking-widest uppercase">Category 3</p>
-          <h3 class="font-display font-bold text-[#2C4E5B] text-xl">Rubber, Die-Casting &amp; Industrial Molding</h3>
-        </div>
-      </div>
-      <p class="text-[#2C4E5B]/65 text-sm mb-6">Focus: High-performance release systems and process anti-foams.</p>
-
-      <div class="grid sm:grid-cols-3 gap-5">
-
-        <div class="glass-card rounded-2xl p-5 transition-all duration-300 searchable" data-searchtext="alkylaryl modified polysiloxane paintable release die casting aluminum zinc temperature painting">
-          <div class="text-2xl mb-3">🏗️</div>
-          <h4 class="font-display font-bold text-[#2C4E5B] text-sm mb-2">Alkylaryl-Modified Polysiloxane</h4>
-          <span class="text-[#4C859B] text-xs font-semibold">(Paintable Release)</span>
-          <p class="text-xs text-[#2C4E5B]/70 leading-relaxed mt-3">Non-carbonizing at extreme temperatures. Used in aluminum/zinc die-casting to ensure smooth release without affecting post-process painting.</p>
-        </div>
-
-        <div class="glass-card rounded-2xl p-5 transition-all duration-300 searchable" data-searchtext="non-ionic pdms emulsion mould release 35 60 active tire molding rubber extrusion">
-          <div class="text-2xl mb-3">🔩</div>
-          <h4 class="font-display font-bold text-[#2C4E5B] text-sm mb-2">Non-Ionic PDMS Emulsion</h4>
-          <span class="text-[#4C859B] text-xs font-semibold">(Mould Release)</span>
-          <div class="text-xs text-[#2C4E5B]/70 font-mono bg-[#F1F4F6] rounded px-3 py-2 mt-3 mb-3">35% &amp; 60% active concentrations</div>
-          <p class="text-xs text-[#2C4E5B]/70 leading-relaxed">Industry standard for tire molding and complex rubber extrusion.</p>
-        </div>
-
-        <div class="glass-card rounded-2xl p-5 transition-all duration-300 searchable" data-searchtext="silica filled polydimethylsiloxane process defoamer 100 active rubber latex distillation shear">
-          <div class="text-2xl mb-3">⚗️</div>
-          <h4 class="font-display font-bold text-[#2C4E5B] text-sm mb-2">Silica-Filled PDMS</h4>
-          <span class="text-[#4C859B] text-xs font-semibold">(Process Defoamer)</span>
-          <div class="text-xs text-[#2C4E5B]/70 font-mono bg-[#F1F4F6] rounded px-3 py-2 mt-3 mb-3">100% Active</div>
-          <p class="text-xs text-[#2C4E5B]/70 leading-relaxed">Highly effective in high-shear rubber latex processing and chemical distillation.</p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ── CATEGORY 4: Organofunctional Silanes ── -->
-    <div class="product-category mb-16 reveal" data-cat="silane">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="w-2 h-8 rounded bg-gradient-to-b from-[#2C4E5B] to-[#4C859B]"></div>
-        <div>
-          <p class="text-[#4C859B] text-xs font-bold tracking-widest uppercase">Category 4</p>
-          <h3 class="font-display font-bold text-[#2C4E5B] text-xl">High-Purity Organofunctional Silanes</h3>
-        </div>
-      </div>
-
-      <div class="glass-card rounded-2xl p-6 searchable" data-searchtext="APTES GLYMO VTMO MEMO silane 919-30-2 2530-83-8 2768-02-7 2530-85-0 amino epoxy vinyl methacrylate adhesion urethane epoxy glass metal XLPE cable insulation fiberglass">
-        <div class="table-scroll rounded-xl overflow-hidden border border-[#2C4E5B]/10">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Chemical Name</th>
-                <th>CAS Number</th>
-                <th>Reactive Group</th>
-                <th>Primary Industrial Use</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>APTES</strong></td>
-                <td class="font-mono">919-30-2</td>
-                <td>Amino</td>
-                <td>Adhesion promoter for Urethanes/Epoxies to Glass/Metals</td>
-              </tr>
-              <tr>
-                <td><strong>GLYMO</strong></td>
-                <td class="font-mono">2530-83-8</td>
-                <td>Epoxy</td>
-                <td>Moisture resistance in PC Encapsulants &amp; Structural Adhesives</td>
-              </tr>
-              <tr>
-                <td><strong>VTMO</strong></td>
-                <td class="font-mono">2768-02-7</td>
-                <td>Vinyl</td>
-                <td>Moisture-crosslinking for XLPE cable insulation</td>
-              </tr>
-              <tr>
-                <td><strong>MEMO</strong></td>
-                <td class="font-mono">2530-85-0</td>
-                <td>Methacrylate</td>
-                <td>Property enhancement in Fiberglass-Reinforced Plastics</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── CATEGORY 5: Flame Retardants ── -->
-    <div class="product-category mb-16 reveal" data-cat="fr">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="w-2 h-8 rounded bg-gradient-to-b from-[#2C4E5B] to-[#4C859B]"></div>
-        <div>
-          <p class="text-[#4C859B] text-xs font-bold tracking-widest uppercase">Category 5</p>
-          <h3 class="font-display font-bold text-[#2C4E5B] text-xl">Specialty Additives &amp; Flame Retardants</h3>
-        </div>
-      </div>
-
-      <div class="glass-card rounded-2xl p-6 searchable" data-searchtext="TCPP TEP BDP IPPP flame retardant plasticizer PU foam PVC rubber engineering plastics PC ABS electronic housing furniture insulation urethane">
-        <div class="table-scroll rounded-xl overflow-hidden border border-[#2C4E5B]/10">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Chemical Compound</th>
-                <th>Function</th>
-                <th>Primary Application</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>TCPP</strong></td>
-                <td>Flame Retardant</td>
-                <td>Rigid/Flexible PU Foams (Furniture &amp; Insulation)</td>
-              </tr>
-              <tr>
-                <td><strong>TEP</strong></td>
-                <td>Plasticizer / FR</td>
-                <td>Viscosity reducer for UPE resins and polyurethanes</td>
-              </tr>
-              <tr>
-                <td><strong>BDP</strong></td>
-                <td>Halogen-Free FR</td>
-                <td>Engineering plastics (PC/ABS) for electronic housings</td>
-              </tr>
-              <tr>
-                <td><strong>IPPP</strong></td>
-                <td>FR Plasticizer</td>
-                <td>PVC and Synthetic Rubbers requiring flexibility</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── CATEGORY 6: Construction & Masonry ── -->
-    <div class="product-category mb-4 reveal" data-cat="construction">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="w-2 h-8 rounded bg-gradient-to-b from-[#2C4E5B] to-[#4C859B]"></div>
-        <div>
-          <p class="text-[#4C859B] text-xs font-bold tracking-widest uppercase">Category 6</p>
-          <h3 class="font-display font-bold text-[#2C4E5B] text-xl">Construction &amp; Masonry Protection</h3>
-        </div>
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-5">
-
-        <div class="glass-card rounded-2xl p-5 transition-all duration-300 searchable" data-searchtext="potassium methyl siliconate aqueous water repellent brick stone terracotta masonry">
-          <div class="text-2xl mb-3">🧱</div>
-          <h4 class="font-display font-bold text-[#2C4E5B] text-sm mb-2">Potassium Methyl Siliconate</h4>
-          <span class="inline-block px-2.5 py-0.5 rounded-full bg-[#2C4E5B]/8 text-[#2C4E5B] text-xs font-medium mb-3">Aqueous Water Repellent</span>
-          <p class="text-xs text-[#2C4E5B]/70 leading-relaxed">Water repellent treatment for bricks, natural stone, and terracotta. Preserves breathability while blocking moisture ingress.</p>
-        </div>
-
-        <div class="glass-card rounded-2xl p-5 transition-all duration-300 searchable" data-searchtext="octyltriethoxysilane 100 active hydrophobic sealer concrete bridge parking chloride protection">
-          <div class="text-2xl mb-3">🌉</div>
-          <h4 class="font-display font-bold text-[#2C4E5B] text-sm mb-2">Octyltriethoxysilane</h4>
-          <span class="inline-block px-2.5 py-0.5 rounded-full bg-[#2C4E5B]/8 text-[#2C4E5B] text-xs font-medium mb-3">100% Active Hydrophobic Sealer</span>
-          <p class="text-xs text-[#2C4E5B]/70 leading-relaxed">Deep penetrating sealer for concrete bridges and parking structures. Provides long-term chloride ion protection against corrosion.</p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- No results message -->
-    <div id="no-results" class="hidden text-center py-16 text-[#2C4E5B]/50">
-      <div class="text-4xl mb-4">🔍</div>
-      <p class="font-semibold text-lg">No products found</p>
-      <p class="text-sm mt-1">Try a different keyword or clear the search.</p>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════
-     CTA BANNER
-══════════════════════════════════════════════ -->
-<div class="bg-[#2C4E5B] blueprint-bg py-20">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center reveal">
-    <p class="text-[#4C859B] text-xs font-bold tracking-widest uppercase mb-3">Ready to Source?</p>
-    <h2 class="font-display font-extrabold text-white text-3xl sm:text-4xl mb-4 leading-tight">
-      Find the Right Chemical Solution<br>for Your Industry.
-    </h2>
-    <p class="text-white/65 text-base leading-relaxed max-w-xl mx-auto mb-8">
-      Our technical team is ready to assist with product specifications, regulatory documentation, and tailored sourcing solutions.
-    </p>
-    <a href="#contact" class="inline-block bg-white text-[#2C4E5B] font-display font-bold px-8 py-4 rounded-lg text-sm hover:bg-[#F1F4F6] transition-all duration-200 shadow-lg">
-      Send an Enquiry →
     </a>
-  </div>
-</div>
 
-
-<!-- ══════════════════════════════════════════════
-     CONTACT
-══════════════════════════════════════════════ -->
-<section id="contact" class="py-24 blueprint-bg">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <div class="text-center mb-14 reveal">
-      <p class="text-[#4C859B] text-xs font-bold tracking-widest uppercase mb-3">Get in Touch</p>
-      <h2 class="font-display font-extrabold text-[#2C4E5B] mb-4" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">
-        Partner With Fabrevol
-      </h2>
-      <p class="text-[#2C4E5B]/65 max-w-lg mx-auto text-base leading-relaxed">
-        Reach out for product inquiries, technical specifications, pricing, or partnership opportunities.
-      </p>
-    </div>
-
-    <div class="grid lg:grid-cols-2 gap-12 items-start">
-
-      <!-- Contact Form -->
-      <div class="glass-card rounded-2xl p-8 reveal">
-        <h3 class="font-display font-bold text-[#2C4E5B] text-lg mb-6">Send an Enquiry</h3>
-        <form id="contact-form" novalidate>
-          <div class="grid sm:grid-cols-2 gap-4 mb-4">
-            <div class="form-field">
-              <label class="block text-xs font-semibold text-[#2C4E5B] mb-1.5" for="name">Full Name <span class="text-red-500">*</span></label>
-              <input id="name" name="name" type="text" class="form-input" placeholder="Your name" required>
-              <p class="form-error text-xs text-red-500 mt-1 hidden">Required</p>
-            </div>
-            <div class="form-field">
-              <label class="block text-xs font-semibold text-[#2C4E5B] mb-1.5" for="company">Company</label>
-              <input id="company" name="company" type="text" class="form-input" placeholder="Company name">
-            </div>
-          </div>
-          <div class="grid sm:grid-cols-2 gap-4 mb-4">
-            <div class="form-field">
-              <label class="block text-xs font-semibold text-[#2C4E5B] mb-1.5" for="email">Email <span class="text-red-500">*</span></label>
-              <input id="email" name="email" type="email" class="form-input" placeholder="you@company.com" required>
-              <p class="form-error text-xs text-red-500 mt-1 hidden">Valid email required</p>
-            </div>
-            <div class="form-field">
-              <label class="block text-xs font-semibold text-[#2C4E5B] mb-1.5" for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" class="form-input" placeholder="+91 XXXXX XXXXX">
-            </div>
-          </div>
-          <div class="form-field mb-4">
-            <label class="block text-xs font-semibold text-[#2C4E5B] mb-1.5" for="product">Product Interest</label>
-            <select id="product" name="product" class="form-input">
-              <option value="">Select a category…</option>
-              <option>Silicone Oils (PDMS) — Linear Siloxanes</option>
-              <option>Agriculture Adjuvants &amp; Wetting Agents</option>
-              <option>Rubber, Die-Casting &amp; Industrial Molding</option>
-              <option>Organofunctional Silanes</option>
-              <option>Specialty Additives &amp; Flame Retardants</option>
-              <option>Construction &amp; Masonry Protection</option>
-              <option>Other / General Enquiry</option>
-            </select>
-          </div>
-          <div class="form-field mb-6">
-            <label class="block text-xs font-semibold text-[#2C4E5B] mb-1.5" for="message">Message <span class="text-red-500">*</span></label>
-            <textarea id="message" name="message" rows="4" class="form-input resize-none" placeholder="Product specifications, quantities, or any questions…" required></textarea>
-            <p class="form-error text-xs text-red-500 mt-1 hidden">Required</p>
-          </div>
-          <button type="submit" id="submit-btn" class="btn-primary w-full text-white font-semibold py-3.5 rounded-lg text-sm transition-all duration-200">
-            Send Enquiry →
-          </button>
-          <div id="form-success" class="hidden mt-4 p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm font-medium text-center">
-            ✅ Message sent! We'll get back to you within 24 hours.
-          </div>
-          <div id="form-error-banner" class="hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm text-center">
-            Please fill in all required fields.
-          </div>
-        </form>
+    <a href="/products.html#agri" class="cat-card">
+      <img class="cat-card__img" src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=900&q=80" alt="Agriculture" loading="lazy">
+      <div class="cat-card__overlay"></div>
+      <div class="cat-card__body">
+        <span class="cat-card__num">Category 02</span>
+        <div class="cat-card__title">Agriculture Adjuvants</div>
+        <div class="cat-card__desc">Super-spreaders, penetrants, and seed coating emulsions that enhance bio-efficacy and foliar uptake of agrochemicals.</div>
+        <span class="cat-card__arrow">View Details →</span>
       </div>
+    </a>
 
-      <!-- Contact info -->
-      <div class="space-y-5 reveal reveal-delay-2">
+    <a href="/products.html#rubber" class="cat-card">
+      <img class="cat-card__img" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80" alt="Industrial" loading="lazy">
+      <div class="cat-card__overlay"></div>
+      <div class="cat-card__body">
+        <span class="cat-card__num">Category 03</span>
+        <div class="cat-card__title">Industrial Mold &amp; Release</div>
+        <div class="cat-card__desc">High-performance release agents, defoamers, and process lubricants for rubber, tire, and die-casting industries.</div>
+        <span class="cat-card__arrow">View Details →</span>
+      </div>
+    </a>
 
-        <div class="glass-card rounded-2xl p-6">
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-[#2C4E5B]/10 flex items-center justify-center text-xl flex-shrink-0">📍</div>
-            <div>
-              <h4 class="font-display font-bold text-[#2C4E5B] text-sm mb-1">Office</h4>
-              <p class="text-[#2C4E5B]/65 text-sm leading-relaxed">Pune, Maharashtra, India</p>
-            </div>
+    <a href="/products.html#silane" class="cat-card">
+      <img class="cat-card__img" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80" alt="Silanes" loading="lazy">
+      <div class="cat-card__overlay"></div>
+      <div class="cat-card__body">
+        <span class="cat-card__num">Category 04</span>
+        <div class="cat-card__title">Organofunctional Silanes</div>
+        <div class="cat-card__desc">Comprehensive range of amine, epoxy, vinyl, and methacrylate silanes for adhesion promotion, cable insulation, and composites.</div>
+        <span class="cat-card__arrow">View Details →</span>
+      </div>
+    </a>
+
+    <a href="/products.html#fr" class="cat-card">
+      <img class="cat-card__img" src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=900&q=80" alt="Flame Retardants" loading="lazy">
+      <div class="cat-card__overlay"></div>
+      <div class="cat-card__body">
+        <span class="cat-card__num">Category 05</span>
+        <div class="cat-card__title">Specialty Additives &amp; Flame Retardants</div>
+        <div class="cat-card__desc">TCPP, TEP, BDP, and IPPP for rigid/flexible PU foams, engineering plastics, and PVC applications.</div>
+        <span class="cat-card__arrow">View Details →</span>
+      </div>
+    </a>
+
+    <a href="/products.html#construction" class="cat-card">
+      <img class="cat-card__img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80" alt="Construction" loading="lazy">
+      <div class="cat-card__overlay"></div>
+      <div class="cat-card__body">
+        <span class="cat-card__num">Category 06</span>
+        <div class="cat-card__title">Construction &amp; Masonry Protection</div>
+        <div class="cat-card__desc">Siliconate water repellents and silane hydrophobic sealers for concrete bridges, masonry, and terracotta.</div>
+        <span class="cat-card__arrow">View Details →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ── ABOUT TEASER ── -->
+<section class="section">
+  <div class="container">
+    <div class="two-col reveal">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1554475901-4538ddfbccc2?auto=format&fit=crop&w=1000&q=80" alt="Industrial chemical plant" loading="lazy">
+        <div class="img-badge">
+          <div class="img-badge__icon">🏛️</div>
+          <div>
+            <div class="img-badge__num">1958</div>
+            <div class="img-badge__text">Founded</div>
           </div>
         </div>
-
-        <div class="glass-card rounded-2xl p-6">
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-[#2C4E5B]/10 flex items-center justify-center text-xl flex-shrink-0">📧</div>
-            <div>
-              <h4 class="font-display font-bold text-[#2C4E5B] text-sm mb-1">Email</h4>
-              <a href="mailto:info@fabrevol.com" class="text-[#4C859B] text-sm hover:text-[#2C4E5B] transition-colors">info@fabrevol.com</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass-card rounded-2xl p-6">
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-[#2C4E5B]/10 flex items-center justify-center text-xl flex-shrink-0">🌐</div>
-            <div>
-              <h4 class="font-display font-bold text-[#2C4E5B] text-sm mb-1">Website</h4>
-              <p class="text-[#2C4E5B]/65 text-sm">www.fabrevol.com</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass-card rounded-2xl p-6">
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-[#2C4E5B]/10 flex items-center justify-center text-xl flex-shrink-0">⏱️</div>
-            <div>
-              <h4 class="font-display font-bold text-[#2C4E5B] text-sm mb-1">Response Time</h4>
-              <p class="text-[#2C4E5B]/65 text-sm">Within 24 business hours</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Trust note -->
-        <div class="bg-gradient-to-br from-[#2C4E5B] to-[#4C859B] rounded-2xl p-6 text-white">
-          <div class="text-2xl mb-3">📋</div>
-          <h4 class="font-display font-bold text-white text-sm mb-2">Documentation Available</h4>
-          <p class="text-white/75 text-xs leading-relaxed">All products available with Certificate of Analysis (CoA), Material Safety Data Sheet (MSDS), and Certificate of Origin on request.</p>
-        </div>
-
+      </div>
+      <div class="text-block reveal reveal-delay-2">
+        <span class="label">Our Heritage</span>
+        <h2>Six Decades of Trust.<br>A New Era of Innovation.</h2>
+        <p>Born from the prestigious <strong>Rangwala Group</strong>, which has pioneered chemical distribution since 1958 in Rajasthan, Fabrevol was established in <strong>Pune in 2022</strong> by Mr. Yash Jhanwar and Mr. Rajendra Jhanwar.</p>
+        <p>Today, we combine ancestral expertise with next-generation supply chain agility to serve industries across Maharashtra and Pan India.</p>
+        <a href="/about.html" class="btn btn--teal" style="margin-top:0.5rem;">Read Our Story →</a>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════════ -->
-<footer class="bg-[#2C4E5B] text-white pt-16 pb-6">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
-
-      <!-- Brand -->
-      <div class="lg:col-span-2">
-        <div class="flex items-center gap-3 mb-4">
-          <img src="/assets/logo.png" alt="Fabrevol" class="h-10 w-auto rounded bg-white p-1.5">
-          <div class="flex flex-col leading-tight">
-            <span class="font-display font-extrabold text-xl tracking-tight">FABREVOL</span>
-            <span class="text-white/50 text-xs font-medium tracking-wide">Rangwala Group of Companies</span>
-          </div>
-        </div>
-        <p class="text-white/55 text-sm leading-relaxed max-w-xs mb-6">
-          Born from the Rangwala Group's 65+ years of heritage, Fabrevol delivers specialty chemicals with next-generation agility across India.
-        </p>
-        <div class="flex gap-3">
-          <a href="mailto:info@fabrevol.com" class="w-9 h-9 rounded-lg bg-white/8 hover:bg-white/15 flex items-center justify-center text-sm transition-colors" aria-label="Email">✉️</a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-white/8 hover:bg-white/15 flex items-center justify-center text-sm transition-colors" aria-label="LinkedIn">💼</a>
-        </div>
-      </div>
-
-      <!-- Quick links -->
-      <div>
-        <h5 class="text-[#4C859B] text-xs font-bold tracking-widest uppercase mb-4">Quick Links</h5>
-        <ul class="space-y-2.5">
-          <li><a href="#home"     class="text-white/60 hover:text-white text-sm transition-colors">Home</a></li>
-          <li><a href="#about"    class="text-white/60 hover:text-white text-sm transition-colors">About Us</a></li>
-          <li><a href="#products" class="text-white/60 hover:text-white text-sm transition-colors">Products</a></li>
-          <li><a href="#contact"  class="text-white/60 hover:text-white text-sm transition-colors">Contact</a></li>
-        </ul>
-      </div>
-
-      <!-- Products -->
-      <div>
-        <h5 class="text-[#4C859B] text-xs font-bold tracking-widest uppercase mb-4">Products</h5>
-        <ul class="space-y-2.5">
-          <li><a href="#products" class="text-white/60 hover:text-white text-sm transition-colors">Silicone Oils</a></li>
-          <li><a href="#products" class="text-white/60 hover:text-white text-sm transition-colors">Agri Adjuvants</a></li>
-          <li><a href="#products" class="text-white/60 hover:text-white text-sm transition-colors">Industrial Mold Release</a></li>
-          <li><a href="#products" class="text-white/60 hover:text-white text-sm transition-colors">Organofunctional Silanes</a></li>
-          <li><a href="#products" class="text-white/60 hover:text-white text-sm transition-colors">Flame Retardants</a></li>
-          <li><a href="#products" class="text-white/60 hover:text-white text-sm transition-colors">Construction Chemicals</a></li>
-        </ul>
-      </div>
-
+<!-- ── WHY FABREVOL ── -->
+<section class="section section--dark reveal">
+  <div class="container">
+    <div class="section-head">
+      <span class="label">Why Choose Us</span>
+      <h2>Built on Trust.<br>Delivered with Precision.</h2>
     </div>
+    <div class="value-grid">
+      <div class="value-card reveal reveal-delay-1">
+        <div class="value-card__icon">🔬</div>
+        <h3>Technical Expertise</h3>
+        <p>Decades of formulation knowledge backed by ISO-certified supply partners across specialty chemical segments.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <div class="value-card__icon">📋</div>
+        <h3>Full Documentation</h3>
+        <p>Every product supplied with Certificate of Analysis (CoA), MSDS, and Certificate of Origin on request.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-3">
+        <div class="value-card__icon">🚚</div>
+        <h3>Pan-India Logistics</h3>
+        <p>Agile supply chain with consistent on-time delivery from Pune to every corner of India.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <div class="value-card__icon">🤝</div>
+        <h3>Long-Term Partnerships</h3>
+        <p>Relationship-driven approach — we work closely with clients to understand their exact sourcing needs.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <div class="value-card__icon">⚖️</div>
+        <h3>Regulatory Compliance</h3>
+        <p>Products sourced from manufacturers compliant with Indian and international quality standards.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-3">
+        <div class="value-card__icon">💡</div>
+        <h3>Application Support</h3>
+        <p>Our team provides technical guidance on product selection, dosage, and application method.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 text-white/35 text-xs">
+<!-- ── CTA BANNER ── -->
+<div class="cta-banner reveal">
+  <div class="container">
+    <span class="label" style="color:rgba(255,255,255,0.5)">Start a Conversation</span>
+    <h2>Ready to Source the Right Chemical?</h2>
+    <p>Our team is ready to assist with product specifications, samples, and tailored pricing.</p>
+    <a href="/contact.html" class="btn btn--outline btn--lg" style="border-color:white; color:white;">Send an Enquiry →</a>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/index.html" class="logo">
+          <img src="/assets/logo.png" alt="Fabrevol">
+          <span class="logo-sub">Rangwala Group of Companies</span>
+        </a>
+        <p>Your trusted partner for high-quality specialty chemicals, silicones, adjuvants, and performance additives across India.</p>
+      </div>
+      <div>
+        <div class="footer__heading">Quick Links</div>
+        <ul class="footer__links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/products.html">Products</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__heading">Products</div>
+        <ul class="footer__links">
+          <li><a href="/products.html#silicone">Silicone Oils</a></li>
+          <li><a href="/products.html#agri">Agri Adjuvants</a></li>
+          <li><a href="/products.html#rubber">Industrial Mold</a></li>
+          <li><a href="/products.html#silane">Organofunctional Silanes</a></li>
+          <li><a href="/products.html#fr">Flame Retardants</a></li>
+          <li><a href="/products.html#construction">Construction</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__heading">Contact</div>
+        <div class="footer__contact-item">📍 <span>301, Origin Workspaces, Baner<br>Pune, Maharashtra 411045</span></div>
+        <div class="footer__contact-item">📞 <a href="tel:+918955980050">+91 89559 80050</a></div>
+        <div class="footer__contact-item">📧 <a href="mailto:Yash.jhanwar@fabrevol.com">Yash.jhanwar@fabrevol.com</a></div>
+        <div class="footer__contact-item">🌐 <span>www.fabrevol.com</span></div>
+        <div class="footer__contact-item" style="margin-top:1rem; font-size:0.8rem; color:rgba(255,255,255,0.4);">CoA · MSDS · Certificate of Origin available on request</div>
+      </div>
+    </div>
+    <div class="footer__bottom">
       <span>&copy; <span id="footer-year"></span> Fabrevol. All rights reserved.</span>
       <span>Premium Chemical Distribution · Pune, India</span>
     </div>
   </div>
 </footer>
 
-
-<!-- ══════════════════════════════════════════════
-     JAVASCRIPT
-══════════════════════════════════════════════ -->
-<script>
-(function () {
-  'use strict';
-
-  /* ── Footer year ── */
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-  /* ── Sticky header ── */
-  const header = document.getElementById('site-header');
-  function updateHeader() {
-    if (window.scrollY > 40) {
-      header.classList.add('bg-[#2C4E5B]', 'shadow-xl');
-      header.classList.remove('bg-transparent');
-    } else {
-      header.classList.remove('bg-[#2C4E5B]', 'shadow-xl');
-      header.classList.add('bg-transparent');
-    }
-  }
-  window.addEventListener('scroll', updateHeader, { passive: true });
-  updateHeader();
-
-  /* ── Smooth scroll ── */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-      const offset = 72;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    });
-  });
-
-  /* ── Mobile nav ── */
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-  hamburger.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', isOpen);
-    const bars = hamburger.querySelectorAll('.ham-bar');
-    if (isOpen) {
-      bars[0].style.transform = 'translateY(8px) rotate(45deg)';
-      bars[1].style.opacity   = '0';
-      bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
-    } else {
-      bars[0].style.transform = '';
-      bars[1].style.opacity   = '1';
-      bars[2].style.transform = '';
-    }
-  });
-  mobileMenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      const bars = hamburger.querySelectorAll('.ham-bar');
-      bars[0].style.transform = '';
-      bars[1].style.opacity   = '1';
-      bars[2].style.transform = '';
-    });
-  });
-
-  /* ── Scroll reveal ── */
-  const reveals = document.querySelectorAll('.reveal');
-  if (reveals.length) {
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => obs.observe(el));
-  }
-
-  /* ── Animated counters ── */
-  const counters = document.querySelectorAll('[data-target]');
-  if (counters.length) {
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const el       = e.target;
-        const target   = parseInt(el.dataset.target, 10);
-        const suffix   = el.dataset.suffix || '';
-        const start    = parseInt(el.textContent.replace(/\D/g, ''), 10) || 0;
-        const duration = 1800;
-        const began    = performance.now();
-        function tick(now) {
-          const progress = Math.min((now - began) / duration, 1);
-          const eased    = 1 - Math.pow(1 - progress, 3);
-          const val      = Math.round(start + (target - start) * eased);
-          el.textContent = val + suffix;
-          if (progress < 1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-        obs.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-    counters.forEach(c => obs.observe(c));
-  }
-
-  /* ── Product search ── */
-  const searchInput = document.getElementById('product-search');
-  const categories  = document.querySelectorAll('.product-category');
-  const noResults   = document.getElementById('no-results');
-
-  function filterProducts(query) {
-    query = query.trim().toLowerCase();
-    let anyVisible = false;
-
-    categories.forEach(cat => {
-      const items = cat.querySelectorAll('.searchable');
-      let catVisible = false;
-
-      items.forEach(item => {
-        const text = (item.dataset.searchtext || '') + ' ' + (item.textContent || '');
-        const match = !query || text.toLowerCase().includes(query);
-        item.classList.toggle('search-hidden', !match);
-        if (match) catVisible = true;
-      });
-
-      // Also check table rows
-      cat.querySelectorAll('tbody tr').forEach(row => {
-        const match = !query || row.textContent.toLowerCase().includes(query);
-        row.classList.toggle('search-hidden', !match);
-        if (match) catVisible = true;
-      });
-
-      cat.classList.toggle('search-hidden', !catVisible);
-      if (catVisible) anyVisible = true;
-    });
-
-    noResults.classList.toggle('hidden', anyVisible);
-  }
-
-  if (searchInput) {
-    searchInput.addEventListener('input', () => filterProducts(searchInput.value));
-  }
-
-  /* ── Category tab filter ── */
-  const tabs = document.querySelectorAll('.cat-tab');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const cat = tab.dataset.cat;
-
-      // Clear search when switching tab
-      if (searchInput) { searchInput.value = ''; }
-
-      categories.forEach(c => {
-        if (cat === 'all' || c.dataset.cat === cat) {
-          c.classList.remove('search-hidden');
-          c.querySelectorAll('.searchable, tbody tr').forEach(el => el.classList.remove('search-hidden'));
-        } else {
-          c.classList.add('search-hidden');
-        }
-      });
-      noResults.classList.add('hidden');
-    });
-  });
-
-  /* ── Contact form ── */
-  const form    = document.getElementById('contact-form');
-  const success = document.getElementById('form-success');
-  const errBan  = document.getElementById('form-error-banner');
-  const submitBtn = document.getElementById('submit-btn');
-
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      success.classList.add('hidden');
-      errBan.classList.add('hidden');
-
-      let valid = true;
-
-      // Required text/email/textarea fields
-      form.querySelectorAll('[required]').forEach(field => {
-        const err = field.parentElement.querySelector('.form-error');
-        const empty = !field.value.trim();
-        const badEmail = field.type === 'email' && field.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value);
-        if (empty || badEmail) {
-          field.classList.add('error');
-          if (err) { err.classList.remove('hidden'); err.textContent = badEmail ? 'Valid email required' : 'Required'; }
-          valid = false;
-        } else {
-          field.classList.remove('error');
-          if (err) err.classList.add('hidden');
-        }
-      });
-
-      if (!valid) { errBan.classList.remove('hidden'); return; }
-
-      // Simulate submission (replace action with Formspree endpoint when ready)
-      submitBtn.textContent = 'Sending…';
-      submitBtn.disabled = true;
-      setTimeout(() => {
-        success.classList.remove('hidden');
-        form.reset();
-        submitBtn.textContent = 'Send Enquiry →';
-        submitBtn.disabled = false;
-      }, 1000);
-    });
-
-    // Clear error on input
-    form.querySelectorAll('[required]').forEach(field => {
-      field.addEventListener('input', () => {
-        field.classList.remove('error');
-        const err = field.parentElement.querySelector('.form-error');
-        if (err) err.classList.add('hidden');
-        errBan.classList.add('hidden');
-      });
-    });
-  }
-
-})();
-</script>
+<script src="/js/main.js"></script>
 </body>
 </html>
