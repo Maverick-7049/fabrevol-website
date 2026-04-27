@@ -99,7 +99,7 @@ p  { color: var(--text-muted); line-height: 1.75; }
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  line-height: 1.7;
+  line-height: 1.35;
   border-left: 1px solid var(--gray-200);
   padding-left: 0.875rem;
   max-width: 90px;
