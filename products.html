@@ -42,7 +42,7 @@
       <nav class="nav">
         <a href="/index.html"    class="nav-link">Home</a>
         <a href="/about.html"   class="nav-link">About</a>
-        <div class="nav-dropdown"><a href="/products.html" class="nav-link">Products<svg class="nav-dropdown__chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a><div class="nav-dropdown__menu"><a href="/products.html#silicone">Silicone Oils</a><a href="/products.html#agri">Agri Adjuvants</a><a href="/products.html#rubber">Industrial Mold &amp; Release</a><a href="/products.html#silane">Silanes</a><a href="/products.html#fr">Flame Retardants</a><a href="/products.html#construction">Construction Chemicals</a></div></div>
+        <div class="nav-dropdown"><a href="/products.html" class="nav-link">Products<svg class="nav-dropdown__chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a><div class="nav-dropdown__menu"><a href="/products.html#silicone">Silicone Oils</a><a href="/products.html#agri">Agrochemicals</a><a href="/products.html#rubber">Industrial Mold &amp; Release</a><a href="/products.html#paints">Paints &amp; Coatings</a><a href="/products.html#pigments">Organic Pigments</a><a href="/products.html#silane">Silanes</a><a href="/products.html#fr">Flame Retardants</a><a href="/products.html#construction">Construction Chemicals</a></div></div>
         <a href="/contact.html" class="nav-link">Contact</a>
         <a href="/contact.html" class="btn-nav" style="margin-left:0.5rem;">Enquire Now</a>
       </nav>
@@ -55,7 +55,7 @@
 <div class="mobile-nav" id="mobile-nav">
   <a href="/index.html"    class="nav-link">Home</a>
   <a href="/about.html"   class="nav-link">About</a>
-  <div class="nav-dropdown"><a href="/products.html" class="nav-link">Products<svg class="nav-dropdown__chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a><div class="nav-dropdown__menu"><a href="/products.html#silicone">Silicone Oils</a><a href="/products.html#agri">Agri Adjuvants</a><a href="/products.html#rubber">Industrial Mold &amp; Release</a><a href="/products.html#silane">Silanes</a><a href="/products.html#fr">Flame Retardants</a><a href="/products.html#construction">Construction Chemicals</a></div></div>
+  <div class="nav-dropdown"><a href="/products.html" class="nav-link">Products<svg class="nav-dropdown__chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a><div class="nav-dropdown__menu"><a href="/products.html#silicone">Silicone Oils</a><a href="/products.html#agri">Agrochemicals</a><a href="/products.html#rubber">Industrial Mold &amp; Release</a><a href="/products.html#paints">Paints &amp; Coatings</a><a href="/products.html#pigments">Organic Pigments</a><a href="/products.html#silane">Silanes</a><a href="/products.html#fr">Flame Retardants</a><a href="/products.html#construction">Construction Chemicals</a></div></div>
   <a href="/contact.html" class="nav-link">Contact</a>
   <a href="/contact.html" class="btn-nav">Enquire Now</a>
 </div>
@@ -81,8 +81,10 @@
     <div class="tab-bar">
       <button class="tab active" data-cat="all">All Categories</button>
       <button class="tab" data-cat="silicone">Silicone Oils</button>
-      <button class="tab" data-cat="agri">Agri Adjuvants</button>
+      <button class="tab" data-cat="agri">Agrochemicals</button>
       <button class="tab" data-cat="rubber">Industrial Mold</button>
+      <button class="tab" data-cat="paints">Paints &amp; Coatings</button>
+      <button class="tab" data-cat="pigments">Organic Pigments</button>
       <button class="tab" data-cat="silane">Silanes</button>
       <button class="tab" data-cat="fr">Flame Retardants</button>
       <button class="tab" data-cat="construction">Construction</button>
@@ -138,44 +140,223 @@
 </div>
 
 <!-- ══════════════════════════════════════════
-     CAT 2 — AGRI ADJUVANTS
+     CAT 2 — AGROCHEMICALS
 ══════════════════════════════════════════ -->
 <div id="agri" class="prod-section" data-cat="agri">
   <div class="container">
     <div class="prod-header">
       <div class="prod-header-left">
         <span class="prod-badge">Category 02</span>
-        <h2>Agriculture Adjuvants &amp; Wetting Agents</h2>
-        <p style="margin-top:0.5rem; max-width:60ch;">Enhancing bio-efficacy through advanced surface tension reduction — super-spreaders, penetrants, and seed coating emulsions.</p>
+        <h2>Agrochemicals</h2>
+        <p style="margin-top:0.5rem; max-width:60ch;">Performance-enhancing chemical additives engineered for agricultural applications — optimising delivery, stability, and efficacy of crop protection products.</p>
       </div>
       <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=400&h=220&q=80" alt="Agriculture field" style="border-radius:var(--radius-md); object-fit:cover; width:340px; height:200px; flex-shrink:0;" loading="lazy">
     </div>
-    <div class="prod-grid">
-      <div class="prod-card">
-        <h4>Trisiloxane Ethoxylate</h4>
-        <span class="sub">Super-Spreader</span>
-        <div class="spec">100% Active · Surface Tension &lt;22 mN/m · Rapid Stomatal Infiltration</div>
-        <p>Maximizes foliar uptake and rain-fastness; reduces water volume requirements for pesticide application.</p>
+
+    <!-- ── Adjuvants ── -->
+    <div class="agri-sub">
+      <h3 class="agri-sub__title">Adjuvants — Super Spreaders &amp; Stickers</h3>
+      <p class="agri-sub__desc">Polyether-modified polysiloxanes and trisiloxane ethoxylates that reduce spray solution surface tension below 25 mN/m, promoting stomatal flooding, exceptional rain-fastness, and significant spray volume reduction. Tank-mix dose: 0.015%–0.12%. Compatible with biologicals and bio-based formulations. Available as liquid concentrates and dispersible powder grades.</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Adjuvant Type</th>
+              <th>Chemistry / Form</th>
+              <th>Spreading</th>
+              <th>Penetration</th>
+              <th>Uptake</th>
+              <th>Rain-fastening</th>
+              <th>Wetting</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Outstanding Super-Spreader</strong><br><span class="cell-note">Superior performance in humid &amp; wet field conditions</span></td>
+              <td>Trisiloxane ethoxylate — liquid</td>
+              <td><span class="perf perf--ex2">Exceptional</span></td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+            </tr>
+            <tr>
+              <td><strong>High-Performance Super-Spreader</strong> <span class="omri-tag">OMRI</span><br><span class="cell-note">Versatile; reduces spray volume across diverse crops</span></td>
+              <td>Trisiloxane ethoxylate — liquid</td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+            </tr>
+            <tr>
+              <td><strong>High-Performance Super-Spreader — Rain-fast Grade</strong> <span class="omri-tag">OMRI</span><br><span class="cell-note">Optimised for humid &amp; wet application conditions</span></td>
+              <td>Trisiloxane ethoxylate — liquid</td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+            </tr>
+            <tr>
+              <td><strong>Economical Tank-mix Spreader</strong> <span class="omri-tag">OMRI</span><br><span class="cell-note">Wide range of agricultural uses; spray volume reduction</span></td>
+              <td>Trisiloxane ethoxylate C7 — liquid</td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+            </tr>
+            <tr>
+              <td><strong>Economical Spreader — Extended Grade</strong><br><span class="cell-note">Cost-effective coverage; broad application range</span></td>
+              <td>Trisiloxane ethoxylate B8 — liquid</td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+            </tr>
+            <tr>
+              <td><strong>Powder-Based Super-Spreader</strong><br><span class="cell-note">For powder-based formulations &amp; agricultural WDG systems</span></td>
+              <td>Organo-modified trisiloxane — wettable powder</td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+            </tr>
+            <tr>
+              <td><strong>High-Performance Dispersible Powder</strong><br><span class="cell-note">Reduces formulation surface tension; amplifies nutrient uptake &amp; soil conditioning</span></td>
+              <td>Organo-modified trisiloxane — dispersible powder</td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+            </tr>
+            <tr>
+              <td><strong>Surfactant &amp; Methyl Ester Blend</strong><br><span class="cell-note">Soybean-derived; improves weed control reliability via effective spreading &amp; sticking</span></td>
+              <td>Methyl ester derived (soybean oil)</td>
+              <td><span class="perf perf--med">Medium</span></td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+            </tr>
+            <tr>
+              <td><strong>Biodegradable Super-Spreader</strong> <span class="omri-tag">OMRI</span><br><span class="cell-note">OECD 301-B certified · Ideal for bio-based &amp; biological formulations</span></td>
+              <td>Trisiloxane ethoxylate — readily biodegradable</td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+              <td><span class="perf perf--exc">Excellent</span></td>
+              <td><span class="perf perf--good">Good</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="prod-card">
-        <h4>Silicone-Polyether Copolymer</h4>
-        <span class="sub">Penetrant</span>
-        <div class="spec">Non-ionic · High solubility · Low phytotoxicity</div>
-        <p>Optimized for systemic pesticides to ensure uniform cuticular penetration on waxy-leaf crops.</p>
-      </div>
-      <div class="prod-card">
-        <h4>Non-Ionic Organic Surfactant</h4>
-        <span class="sub">Organic Spreader</span>
-        <div class="spec">Alcohol Ethoxylate based · Eco-friendly</div>
-        <p>Sustainable alternative for uniform wetting in silicone-sensitive agricultural environments.</p>
-      </div>
-      <div class="prod-card">
-        <h4>Siloxane Resin Emulsion</h4>
-        <span class="sub">Seed Coating</span>
-        <div class="spec">Aqueous film-former · Breathable matrix</div>
-        <p>Prevents dust-off of active ingredients during seed handling while maintaining high germination rates.</p>
+      <div style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span class="tag">Herbicides</span><span class="tag">Pesticides</span><span class="tag">Fungicides</span><span class="tag">Foliar Nutrients</span><span class="tag">Plant Growth Regulators</span><span class="tag">Biologicals</span>
       </div>
     </div>
+
+    <!-- ── Antifoams ── -->
+    <div class="agri-sub">
+      <h3 class="agri-sub__title">Antifoams &amp; Defoamers</h3>
+      <p class="agri-sub__desc">Silicone-based antifoam emulsions designed for effective use in agriculture. Compatible with most surfactants in aqueous formulations across a broad pH range. Provides rapid foam knockdown and lasting suppression during high-speed mixing, bottling, and spray application — enhancing the delivery efficiency of the agro formulation.</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Chemistry Type</th>
+              <th>Form</th>
+              <th>Key Performance</th>
+              <th>Primary Applications</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Silicone Emulsion Antifoam — High-Performance</strong></td>
+              <td>Liquid emulsion</td>
+              <td>Particularly effective with nonionic surfactants · Superior knockdown &amp; foam control in agro formulations and surfactant concentrates</td>
+              <td>Herbicides · Insecticides · Fungicides · Foliar nutrients</td>
+            </tr>
+            <tr>
+              <td><strong>Silicone Emulsion Antifoam — Multi-formulation Grade</strong></td>
+              <td>Liquid emulsion</td>
+              <td>Broad compatibility across agro formulation types · Reliable defoaming performance</td>
+              <td>General agro formulations</td>
+            </tr>
+            <tr>
+              <td><strong>Silicone Glycol Liquid Antifoam — High-Performance</strong></td>
+              <td>Liquid</td>
+              <td>High-performance foam suppression · Fast knockdown</td>
+              <td>Pesticide &amp; herbicide formulations</td>
+            </tr>
+            <tr>
+              <td><strong>Silicone Glycol Liquid Antifoam — Stable Grade</strong></td>
+              <td>Liquid</td>
+              <td>Effective across wide pH range · Stable under high shear &amp; elevated temperature</td>
+              <td>High-shear mixing · Elevated temperature processes</td>
+            </tr>
+            <tr>
+              <td><strong>Silicone Glycol Powder Antifoam</strong></td>
+              <td>Wettable Powder (WP)</td>
+              <td>Superior knockdown · Sustained antifoaming · Easy incorporation into dry systems</td>
+              <td>Wettable powder &amp; dry formulation systems</td>
+            </tr>
+            <tr>
+              <td><strong>100% Silicone Glycol — Self-dispersing Antifoam</strong></td>
+              <td>Liquid (100% active)</td>
+              <td>Self-dispersing · Effective at ppm dosages · Broad pH, shear &amp; temperature stability</td>
+              <td>Concentrated formulations requiring ultra-low-dose defoaming</td>
+            </tr>
+            <tr>
+              <td><strong>Mineral Oil Defoamer — Non-silicone</strong></td>
+              <td>Water-dispersible liquid</td>
+              <td>Water-dispersible · Suitable for silicone-sensitive systems</td>
+              <td>Agro formulations where silicone use is restricted</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── Dispersing Agents ── -->
+    <div class="agri-sub">
+      <h3 class="agri-sub__title">Dispersing Agents</h3>
+      <p class="agri-sub__desc">Dispersing agents ensure uniform distribution of active ingredients in pesticide and herbicide formulations by reducing surface tension between the active and liquid phase. Prevents clumping, sedimentation, and Ostwald ripening — enhancing stability and application efficacy across SC, WP, and WDG formulations.</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Chemistry</th>
+              <th>Form</th>
+              <th>Key Performance</th>
+              <th>Formulation Types</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Sodium Salt of Alkylnaphthalene Sulphonate Condensate</strong></td>
+              <td>High-active solid condensate</td>
+              <td>High-active wetting &amp; dispersing · Minimises milling time · Controls crystal growth (Ostwald ripening) over shelf life · Prevents hard settling &amp; agglomeration</td>
+              <td>SC · WP · WDG</td>
+            </tr>
+            <tr>
+              <td><strong>Sodium Salt of Alkylnaphthalene Sulphonate Dispersion</strong></td>
+              <td>Liquid dispersion</td>
+              <td>Reduces intersurface tension between active &amp; liquid · Enhances wetting of active · Ensures uniform suspension · Prevents settling &amp; agglomeration</td>
+              <td>SC · Liquid concentrate formulations</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span class="tag">Suspension Concentrates (SC)</span><span class="tag">Wettable Powders (WP)</span><span class="tag">Water Dispersible Granules (WDG)</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -214,13 +395,121 @@
 </div>
 
 <!-- ══════════════════════════════════════════
-     CAT 4 — ORGANOFUNCTIONAL SILANES
+     CAT 4 — PAINTS & COATING ADDITIVES
+══════════════════════════════════════════ -->
+<div id="paints" class="prod-section" data-cat="paints">
+  <div class="container">
+    <div class="prod-header">
+      <div class="prod-header-left">
+        <span class="prod-badge">Category 04</span>
+        <h2>Paints &amp; Coating Additives</h2>
+        <p style="margin-top:0.5rem; max-width:60ch;">Specialty additives for water-borne, solvent-borne, and solvent-free paint systems — enhancing performance during manufacturing, storage, and post-application at typical loadings of 0.01%–5%.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=400&h=220&q=80" alt="Paint and coatings" style="border-radius:var(--radius-md); object-fit:cover; width:340px; height:200px; flex-shrink:0;" loading="lazy">
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <h4>Rheology Modifiers</h4>
+        <span class="sub">HEC · HEUR · HASE Thickeners</span>
+        <div class="spec">Cellulosic &amp; Synthetic Associative Types</div>
+        <p>Prevents pigment settling during storage and sagging on vertical surfaces post-application. Improves in-can consistency, brush-ability, flow, levelling, and spatter resistance during roller application.</p>
+      </div>
+      <div class="prod-card">
+        <h4>Dispersing &amp; Wetting Agents</h4>
+        <span class="sub">High-MW Polyacrylates · Block Copolymers · Non-ionic Surfactants</span>
+        <div class="spec">Steric &amp; Electrostatic Stabilization</div>
+        <p>Prevents pigment flocculation and agglomeration. Drastically improves colour development, tinting strength, and gloss. Reduces dynamic surface tension to prevent crawling and cratering over difficult or contaminated substrates.</p>
+      </div>
+      <div class="prod-card">
+        <h4>Defoamers &amp; De-aerators</h4>
+        <span class="sub">Silicone Oils · Modified Polysiloxanes · Mineral Oil + Hydrophobic Silica</span>
+        <div class="spec">For grinding, let-down, spray &amp; roller application</div>
+        <p>Rapidly breaks macro-foam during pigment grinding and micro-foam (entrapped air) formed during spray or roller application. Prevents surface defects including pinholing and fisheyes in the final film.</p>
+      </div>
+      <div class="prod-card">
+        <h4>Matting Agents</h4>
+        <span class="sub">Precipitated Synthetic Silica · PE Wax · Polyamide Wax</span>
+        <div class="spec">Untreated &amp; Wax-treated Grades Available</div>
+        <p>Micro-roughens the dry coating film to diffuse incident light. Delivers efficient, consistent gloss reduction to achieve matte, satin, or eggshell finishes without compromising transparency or film toughness.</p>
+      </div>
+      <div class="prod-card">
+        <h4>Adhesion Promoters</h4>
+        <span class="sub">Organo-functional Silanes · Chlorinated Polyolefins (CPO) · Acrylic Resins</span>
+        <div class="spec">For glass, aluminium, galvanised steel, PP/PE</div>
+        <p>Acts as a molecular bridge between the organic coating binder and inorganic or difficult substrates. Ensures long-term adhesion and moisture resistance on low-surface-energy plastics and non-porous metals.</p>
+      </div>
+      <div class="prod-card">
+        <h4>UV Absorbers &amp; Light Stabilizers (HALS)</h4>
+        <span class="sub">Benzotriazoles · Triazines · Benzophenones · Hindered Amine Light Stabilizers</span>
+        <div class="spec">0.1%–2% loading in exterior coatings &amp; outdoor plastics</div>
+        <p>UVA acts as a molecular sunblock — absorbing harmful UV radiation and dissipating it as heat. HALS scavenges free radicals formed by photo-oxidation, breaking the polymer degradation cycle. Prevents chalking, cracking, embrittlement, and pigment fading.</p>
+        <div style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:0.375rem;">
+          <span class="tag tag--accent">Exterior Architectural Coatings</span>
+          <span class="tag tag--accent">Automotive Clearcoats</span>
+          <span class="tag tag--accent">Wood Finishes</span>
+          <span class="tag tag--accent">Plastic Masterbatches</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     CAT 5 — HIGH-PERFORMANCE ORGANIC PIGMENTS
+══════════════════════════════════════════ -->
+<div id="pigments" class="prod-section" data-cat="pigments">
+  <div class="container">
+    <div class="prod-header">
+      <div class="prod-header-left">
+        <span class="prod-badge">Category 05</span>
+        <h2>High-Performance Organic Pigments</h2>
+        <p style="margin-top:0.5rem; max-width:60ch;">Premium-grade organic pigments with brilliant, clean shades, exceptional tinting strength, and outstanding weatherability for paints, inks, plastics, and rubber applications.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=400&h=220&q=80" alt="Organic pigments" style="border-radius:var(--radius-md); object-fit:cover; width:340px; height:200px; flex-shrink:0;" loading="lazy">
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Pigment Class</th>
+            <th>Chemistry</th>
+            <th>Shades</th>
+            <th>Key Properties</th>
+            <th>Primary Applications</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Phthalocyanines</strong></td><td>Copper Phthalocyanine (CuPc)</td><td>Blues · Greens</td><td>Outstanding lightfastness, high tinting strength, excellent heat &amp; chemical resistance</td><td>Architectural paints, printing inks, plastics</td></tr>
+          <tr><td><strong>Quinacridones</strong></td><td>Linear / Unsubstituted Quinacridone</td><td>Reds · Violets · Magentas</td><td>Brilliant clean shades, exceptional weatherability, high temperature stability (&gt;300°C)</td><td>Automotive coatings, industrial finishes, printing ink</td></tr>
+          <tr><td><strong>DPP (Diketopyrrolopyrrole)</strong></td><td>Pyrrolopyrrole Dione</td><td>Reds · Oranges</td><td>Highest lightfastness (8/8), outstanding heat stability, full solvent resistance</td><td>Automotive OEM, premium decorative paints, masterbatches</td></tr>
+          <tr><td><strong>High-Grade Azo</strong></td><td>Monoazo &amp; Disazo compounds</td><td>Yellows · Oranges · Reds</td><td>Good tinting strength, broad shade range, cost-effective performance</td><td>Architectural paints, rubber compounding, printing inks</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:1.75rem;">
+      <p style="font-size:0.8125rem; font-weight:700; color:var(--primary); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Application Areas</p>
+      <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span class="tag">Architectural Paints</span>
+        <span class="tag">Automotive &amp; Industrial Coatings</span>
+        <span class="tag">Printing Inks</span>
+        <span class="tag">Rubber Compounding</span>
+        <span class="tag">Plastic Masterbatches</span>
+        <span class="tag">High-Temperature Extrusion</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     CAT 6 — ORGANOFUNCTIONAL SILANES
 ══════════════════════════════════════════ -->
 <div id="silane" class="prod-section" data-cat="silane">
   <div class="container">
     <div class="prod-header">
       <div class="prod-header-left">
-        <span class="prod-badge">Category 04</span>
+        <span class="prod-badge">Category 06</span>
         <h2>Silanes</h2>
         <p style="margin-top:0.5rem; max-width:60ch;">Comprehensive range of high-purity silane coupling agents for adhesion promotion, crosslinking, and composite reinforcement.</p>
       </div>
@@ -272,13 +561,13 @@
 </div>
 
 <!-- ══════════════════════════════════════════
-     CAT 5 — FLAME RETARDANTS
+     CAT 7 — FLAME RETARDANTS
 ══════════════════════════════════════════ -->
 <div id="fr" class="prod-section" data-cat="fr">
   <div class="container">
     <div class="prod-header">
       <div class="prod-header-left">
-        <span class="prod-badge">Category 05</span>
+        <span class="prod-badge">Category 07</span>
         <h2>Specialty Additives &amp; Flame Retardants</h2>
         <p style="margin-top:0.5rem; max-width:60ch;">Phosphorus-based flame retardants and plasticizers for PU foams, engineering plastics, PVC, and synthetic rubbers.</p>
       </div>
@@ -307,15 +596,15 @@
 </div>
 
 <!-- ══════════════════════════════════════════
-     CAT 6 — CONSTRUCTION
+     CAT 8 — CONSTRUCTION CHEMICALS
 ══════════════════════════════════════════ -->
 <div id="construction" class="prod-section" data-cat="construction">
   <div class="container">
     <div class="prod-header">
       <div class="prod-header-left">
-        <span class="prod-badge">Category 06</span>
-        <h2>Construction Chemicals</h2>
-        <p style="margin-top:0.5rem; max-width:60ch;">Siliconate water repellents and silane-based hydrophobic sealers for long-term protection of concrete, masonry, and natural stone.</p>
+        <span class="prod-badge">Category 08</span>
+        <h2>Construction Chemicals &amp; Water Repellents</h2>
+        <p style="margin-top:0.5rem; max-width:60ch;">Alkyl alkoxysilanes, oligomeric siloxanes, and silane/siloxane micro-emulsions providing deep-penetrating, breathable hydrophobic protection for concrete, masonry, and natural stone.</p>
       </div>
       <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&h=220&q=80" alt="Construction site" style="border-radius:var(--radius-md); object-fit:cover; width:340px; height:200px; flex-shrink:0;" loading="lazy">
     </div>
@@ -323,21 +612,33 @@
       <div class="prod-card">
         <h4>Potassium Methyl Siliconate</h4>
         <span class="sub">Aqueous Water Repellent</span>
-        <p>Water-based repellent treatment for bricks, natural stone, and terracotta. Penetrates the substrate and forms a hydrophobic barrier while preserving breathability. Ideal for heritage and modern masonry.</p>
+        <p>Water-based repellent for bricks, natural stone, and terracotta. Penetrates capillary pores and chemically bonds with silica to form a durable hydrophobic matrix without altering visual appearance. Preserves substrate breathability and prevents efflorescence (white staining) and freeze-thaw damage.</p>
         <div style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:0.375rem;">
           <span class="tag tag--accent">Bricks</span>
           <span class="tag tag--accent">Natural Stone</span>
           <span class="tag tag--accent">Terracotta</span>
+          <span class="tag tag--accent">Aerated Concrete</span>
         </div>
       </div>
       <div class="prod-card">
         <h4>Octyltriethoxysilane</h4>
         <span class="sub">100% Active Hydrophobic Sealer</span>
-        <p>Deep-penetrating silane sealer for concrete bridges and parking structures. Provides long-term chloride ion protection against corrosion of reinforcement steel. Colorless, non-film-forming.</p>
+        <p>Deep-penetrating silane sealer for concrete bridges and parking structures. Provides long-term chloride ion protection, preventing corrosion of reinforcement steel. Protects against freeze-thaw damage and water-soluble salt transport. Colourless, non-film-forming.</p>
         <div style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:0.375rem;">
           <span class="tag tag--accent">Concrete Bridges</span>
           <span class="tag tag--accent">Parking Structures</span>
           <span class="tag tag--accent">Chloride Protection</span>
+          <span class="tag tag--accent">Heritage Buildings</span>
+        </div>
+      </div>
+      <div class="prod-card">
+        <h4>Silane / Siloxane Micro-Emulsions</h4>
+        <span class="sub">Water-borne Penetrating Sealer</span>
+        <p>Eco-friendly water-borne formulation combining the deep penetration of silanes with the immediate water repellency of siloxanes. Ideal for large-area application on cementitious plasters and rendered facades. Low VOC, easy to apply by brush, roller, or spray.</p>
+        <div style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:0.375rem;">
+          <span class="tag tag--accent">Cementitious Plasters</span>
+          <span class="tag tag--accent">Rendered Facades</span>
+          <span class="tag tag--accent">Low VOC</span>
         </div>
       </div>
     </div>
@@ -419,6 +720,22 @@
 <style>
 .mono { font-family: 'Courier New', monospace; font-size: 0.8125rem; color: var(--text-muted); }
 .hidden { display: none; }
+
+/* Agri subsections */
+.agri-sub { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--gray-100); }
+.agri-sub__title { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 0.625rem; }
+.agri-sub__desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; max-width: 78ch; margin-bottom: 1.5rem; }
+.cell-note { font-size: 0.76rem; color: var(--text-muted); }
+
+/* Performance rating badges */
+.perf { display: inline-block; padding: 0.2rem 0.55rem; border-radius: 2rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; }
+.perf--ex2 { background: #1a3a47; color: white; }
+.perf--exc { background: var(--primary); color: white; }
+.perf--good { background: var(--accent); color: white; }
+.perf--med { background: #b0c4c8; color: var(--primary); }
+
+/* OMRI badge */
+.omri-tag { display: inline-block; padding: 0.1rem 0.4rem; background: #2d6a2d; color: white; border-radius: 3px; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.05em; vertical-align: middle; margin-left: 0.25rem; }
 </style>
 
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
