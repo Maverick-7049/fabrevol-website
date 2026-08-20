@@ -317,18 +317,22 @@
 </section>
 
 <!-- ── PRINCIPALS TICKER ── -->
-<div style="background:white; border-top:1px solid var(--gray-100); border-bottom:1px solid var(--gray-100); padding:2rem 0;">
-  <div class="container" style="text-align:center; margin-bottom:1.25rem;">
-    <span class="label">Our Principals</span>
+<div style="background:linear-gradient(135deg,#2C4E5B 0%,#3a6475 100%); padding:2.25rem 0;">
+  <div class="container" style="text-align:center; margin-bottom:1.5rem;">
+    <span style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; color:rgba(255,255,255,0.5); text-transform:uppercase;">Our Principals</span>
   </div>
   <div style="overflow:hidden;">
     <div class="ticker-track">
-      <img src="/assets/logo-wacker-metroark.svg" alt="Wacker Metroark" class="ticker-logo">
-      <img src="/assets/logo-resil.jpg"            alt="Resil Performance Chemicals" class="ticker-logo">
-      <img src="/assets/logo-resil-agro.png"       alt="Resil Agro Specialty Ingredients" class="ticker-logo">
+      <img src="/assets/logo-wacker.svg"           alt="Wacker Chemie AG" class="ticker-logo">
       <img src="/assets/logo-wacker-metroark.svg"  alt="Wacker Metroark" class="ticker-logo">
-      <img src="/assets/logo-resil.jpg"            alt="Resil Performance Chemicals" class="ticker-logo">
-      <img src="/assets/logo-resil-agro.png"       alt="Resil Agro Specialty Ingredients" class="ticker-logo">
+      <img src="/assets/logo-resil.jpg"            alt="Resil Performance Chemicals" class="ticker-logo ticker-logo--bg">
+      <img src="/assets/logo-resil-agro.png"       alt="Resil Agro Specialty Ingredients" class="ticker-logo ticker-logo--bg">
+      <img src="/assets/logo-lanya.jpg"            alt="Lanya Chem" class="ticker-logo ticker-logo--bg">
+      <img src="/assets/logo-wacker.svg"           alt="Wacker Chemie AG" class="ticker-logo">
+      <img src="/assets/logo-wacker-metroark.svg"  alt="Wacker Metroark" class="ticker-logo">
+      <img src="/assets/logo-resil.jpg"            alt="Resil Performance Chemicals" class="ticker-logo ticker-logo--bg">
+      <img src="/assets/logo-resil-agro.png"       alt="Resil Agro Specialty Ingredients" class="ticker-logo ticker-logo--bg">
+      <img src="/assets/logo-lanya.jpg"            alt="Lanya Chem" class="ticker-logo ticker-logo--bg">
     </div>
   </div>
 </div>
@@ -336,24 +340,30 @@
 .ticker-track {
   display: flex;
   align-items: center;
-  gap: 6rem;
+  gap: 5rem;
   width: max-content;
-  padding: 0 3rem;
-  animation: ticker-scroll 20s linear infinite;
+  padding: 0 2.5rem;
+  animation: ticker-scroll 24s linear infinite;
 }
 .ticker-logo {
-  height: 48px;
+  height: 44px;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
-  filter: grayscale(100%);
-  opacity: 0.55;
-  transition: filter 0.3s, opacity 0.3s;
+  filter: brightness(0) invert(1);
+  opacity: 0.65;
+  transition: opacity 0.3s;
 }
-.ticker-logo:hover {
-  filter: grayscale(0%);
-  opacity: 1;
+.ticker-logo--bg {
+  height: 40px;
+  background: white;
+  border-radius: 6px;
+  padding: 5px 10px;
+  filter: none;
+  opacity: 0.85;
 }
+.ticker-logo:hover { opacity: 1; }
+.ticker-logo--bg:hover { opacity: 1; }
 @keyframes ticker-scroll {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
