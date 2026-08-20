@@ -87,11 +87,11 @@
 </div>
 
 <!-- ── HERO ── -->
-<section class="hero">
-  <div class="hero__bg" style="background-image:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80')"></div>
-  <div class="hero__overlay"></div>
+<section class="hero" id="hero-section">
+  <canvas id="atom-canvas" style="position:absolute;inset:0;width:100%;height:100%;display:block;"></canvas>
+  <div class="hero__overlay" style="background:linear-gradient(110deg, rgba(4,12,26,0.88) 0%, rgba(8,22,44,0.72) 50%, rgba(12,38,60,0.25) 100%);"></div>
   <div class="container">
-    <div class="hero__content reveal">
+    <div class="hero__content reveal" style="background:rgba(255,255,255,0.035);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(126,200,227,0.12);border-radius:20px;padding:3rem 3.5rem;box-shadow:0 32px 80px rgba(0,0,0,0.45),inset 0 1px 0 rgba(255,255,255,0.07);">
       <h1>Chemical Distribution<br><span>Reimagined.</span></h1>
       <p>Delivering high-purity specialty chemicals, advanced silicones, and performance adjuvants with unparalleled reliability and ancestral industry trust across India.</p>
       <div class="hero__actions">
@@ -432,5 +432,208 @@
 
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="/js/main.js"></script>
+
+<!-- ── ATOM-GLOBE HERO ANIMATION ── -->
+<script>
+(function(){
+  var canvas = document.getElementById('atom-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, cx, cy, globeR;
+  var t = 0;
+  var globeAngle = 0;
+
+  function resize() {
+    var s = document.getElementById('hero-section');
+    W = canvas.width  = s ? s.offsetWidth  : window.innerWidth;
+    H = canvas.height = s ? s.offsetHeight : window.innerHeight;
+    cx = W / 2;
+    cy = H / 2;
+    globeR = Math.min(W, H) * 0.27;
+  }
+
+  // 8 orbital rings at varied tilts and phases
+  var rings = [];
+  var ringCount = 8;
+  for (var i = 0; i < ringCount; i++) {
+    var tilt = ((i / ringCount) * Math.PI) - Math.PI / 2;
+    var phase = (i / ringCount) * Math.PI;
+    rings.push({
+      tilt: tilt,
+      phase: phase,
+      color: i % 2 === 0 ? [126,200,227] : [76,180,200],
+      electrons: [
+        { angle: (i * 0.9), speed: 0.007 + i * 0.0005 },
+        { angle: (i * 0.9) + Math.PI, speed: 0.007 + i * 0.0005 }
+      ]
+    });
+  }
+
+  // Background stars
+  var stars = [];
+  for (var j = 0; j < 180; j++) {
+    stars.push({
+      x: Math.random(),
+      y: Math.random(),
+      r: Math.random() * 1.2 + 0.2,
+      o: Math.random() * 0.35 + 0.05,
+      flicker: Math.random() * Math.PI * 2,
+      fspeed: 0.01 + Math.random() * 0.02
+    });
+  }
+
+  // 3D projection: point on ring -> canvas coords
+  function project3d(tilt, phase, angle, r, gRot) {
+    var x0 = r * Math.cos(angle);
+    var y0 = r * Math.sin(angle);
+    // rotate around Z by tilt
+    var y1 = y0 * Math.cos(tilt);
+    var z1 = y0 * Math.sin(tilt);
+    // rotate around Y by phase + globeRot
+    var rot = phase + gRot;
+    var x2 = x0 * Math.cos(rot) - z1 * Math.sin(rot);
+    var z2 = x0 * Math.sin(rot) + z1 * Math.cos(rot);
+    var y2 = y1;
+    // perspective
+    var fov = 3.2;
+    var s = fov / (fov + z2 / r);
+    return { x: cx + x2 * s, y: cy + y2 * s, z: z2, s: s };
+  }
+
+  function drawRing(ring, gRot, r) {
+    var steps = 96;
+    ctx.beginPath();
+    for (var i = 0; i <= steps; i++) {
+      var a = (i / steps) * Math.PI * 2;
+      var p = project3d(ring.tilt, ring.phase, a, r, gRot);
+      if (i === 0) ctx.moveTo(p.x, p.y);
+      else ctx.lineTo(p.x, p.y);
+    }
+    ctx.closePath();
+  }
+
+  function draw() {
+    t++;
+    globeAngle += 0.0025;
+
+    ctx.clearRect(0, 0, W, H);
+
+    // Deep space background
+    var bg = ctx.createRadialGradient(cx * 0.7, cy * 0.5, 0, cx, cy, Math.max(W, H));
+    bg.addColorStop(0,   '#0c1f38');
+    bg.addColorStop(0.4, '#071629');
+    bg.addColorStop(1,   '#030c18');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
+
+    // Stars
+    for (var i = 0; i < stars.length; i++) {
+      var st = stars[i];
+      st.flicker += st.fspeed;
+      var o = st.o + Math.sin(st.flicker) * 0.08;
+      ctx.beginPath();
+      ctx.arc(st.x * W, st.y * H, st.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(180,220,255,' + Math.max(0, o) + ')';
+      ctx.fill();
+    }
+
+    var r = globeR;
+
+    // Draw orbital rings
+    for (var ri = 0; ri < rings.length; ri++) {
+      var ring = rings[ri];
+      drawRing(ring, globeAngle, r);
+      var pulse = 0.08 + Math.sin(t * 0.012 + ri * 0.8) * 0.04;
+      ctx.strokeStyle = 'rgba(' + ring.color[0] + ',' + ring.color[1] + ',' + ring.color[2] + ',' + pulse + ')';
+      ctx.lineWidth = 1.0;
+      ctx.stroke();
+    }
+
+    // Globe outline (faint equator sphere)
+    var eq = ctx.createEllipse ? null : null;
+    // Draw a faint sphere silhouette
+    var sphereGrad = ctx.createRadialGradient(cx - r * 0.25, cy - r * 0.25, r * 0.05, cx, cy, r * 1.05);
+    sphereGrad.addColorStop(0,   'rgba(126,200,227,0.04)');
+    sphereGrad.addColorStop(0.7, 'rgba(76,133,155,0.02)');
+    sphereGrad.addColorStop(1,   'rgba(76,133,155,0)');
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.fillStyle = sphereGrad;
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(126,200,227,0.07)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // Draw electrons with tails
+    for (var ri = 0; ri < rings.length; ri++) {
+      var ring = rings[ri];
+      for (var ei = 0; ei < ring.electrons.length; ei++) {
+        var el = ring.electrons[ei];
+        el.angle += el.speed;
+
+        // Glow tail
+        var tailLen = 18;
+        for (var ti = tailLen; ti >= 0; ti--) {
+          var ta = el.angle - ti * 0.05;
+          var tp = project3d(ring.tilt, ring.phase, ta, r, globeAngle);
+          var tf = 1 - ti / tailLen;
+          var tr2 = tf * 3.5 * tp.s;
+          if (tr2 < 0.3) continue;
+          ctx.beginPath();
+          ctx.arc(tp.x, tp.y, tr2, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(' + ring.color[0] + ',' + ring.color[1] + ',' + ring.color[2] + ',' + (tf * 0.55 * tp.s) + ')';
+          ctx.fill();
+        }
+
+        // Electron core
+        var ep = project3d(ring.tilt, ring.phase, el.angle, r, globeAngle);
+        var er = 3.5 * ep.s;
+
+        // Outer glow
+        var eg = ctx.createRadialGradient(ep.x, ep.y, 0, ep.x, ep.y, er * 4);
+        eg.addColorStop(0,   'rgba(210,245,255,' + (0.85 * ep.s) + ')');
+        eg.addColorStop(0.35,'rgba(' + ring.color[0] + ',' + ring.color[1] + ',' + ring.color[2] + ',' + (0.55 * ep.s) + ')');
+        eg.addColorStop(1,   'rgba(' + ring.color[0] + ',' + ring.color[1] + ',' + ring.color[2] + ',0)');
+        ctx.beginPath();
+        ctx.arc(ep.x, ep.y, er * 4, 0, Math.PI * 2);
+        ctx.fillStyle = eg;
+        ctx.fill();
+
+        // Solid dot
+        ctx.beginPath();
+        ctx.arc(ep.x, ep.y, Math.max(1, er), 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(225,248,255,' + (0.95 * ep.s) + ')';
+        ctx.fill();
+      }
+    }
+
+    // Nucleus
+    var pulse2 = 1 + Math.sin(t * 0.04) * 0.18;
+    var ng = ctx.createRadialGradient(cx, cy, 0, cx, cy, 18 * pulse2);
+    ng.addColorStop(0,   'rgba(255,255,255,1)');
+    ng.addColorStop(0.2, 'rgba(200,240,255,0.9)');
+    ng.addColorStop(0.6, 'rgba(126,200,227,0.5)');
+    ng.addColorStop(1,   'rgba(76,133,155,0)');
+    ctx.beginPath();
+    ctx.arc(cx, cy, 18 * pulse2, 0, Math.PI * 2);
+    ctx.fillStyle = ng;
+    ctx.fill();
+
+    // Nucleus ring pulse
+    var pr = 28 + Math.sin(t * 0.04) * 7;
+    ctx.beginPath();
+    ctx.arc(cx, cy, pr, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(126,200,227,' + (0.25 + Math.sin(t * 0.04) * 0.12) + ')';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  window.addEventListener('resize', function(){ resize(); });
+  draw();
+})();
+</script>
 </body>
 </html>
