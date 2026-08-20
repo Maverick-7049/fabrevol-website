@@ -90,11 +90,10 @@
 <section class="hero" id="hero-section" style="min-height:100vh; align-items:stretch;">
   <canvas id="atom-canvas" style="position:absolute;inset:0;width:100%;height:100%;display:block;"></canvas>
   <div style="position:absolute;inset:0;background:linear-gradient(105deg,rgba(4,12,26,0.93) 0%,rgba(6,18,38,0.82) 42%,rgba(8,24,50,0.18) 68%,transparent 100%);pointer-events:none;"></div>
-  <div class="container" style="position:relative;z-index:2;display:flex;align-items:center;min-height:100vh;padding-block:7rem;">
-    <div style="max-width:520px;">
-      <span style="display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(126,200,227,0.7);margin-bottom:1.5rem;">Specialty Chemical Distribution · Pan India</span>
-      <h1 style="font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.08;color:#fff;margin-bottom:1.25rem;">Chemical<br>Distribution<br><span style="color:#7EC8E3;">Reimagined.</span></h1>
-      <p style="font-size:1.05rem;color:rgba(255,255,255,0.68);max-width:42ch;margin-bottom:2.25rem;line-height:1.7;">Delivering high-purity specialty chemicals, advanced silicones, and performance adjuvants with unparalleled reliability across India.</p>
+  <div style="position:relative;z-index:2;display:flex;align-items:center;min-height:100vh;padding:8rem 0 6rem max(3rem,5vw);width:100%;">
+    <div style="max-width:480px;">
+      <h1 style="font-size:clamp(2.6rem,5.5vw,4.2rem);line-height:1.06;color:#fff;margin-bottom:1.25rem;font-weight:800;letter-spacing:-0.01em;">Chemical<br>Distribution<br><span style="color:#7EC8E3;">Reimagined.</span></h1>
+      <p style="font-size:1.05rem;color:rgba(255,255,255,0.62);max-width:40ch;margin-bottom:2.5rem;line-height:1.72;">Delivering high-purity specialty chemicals, advanced silicones, and performance adjuvants with unparalleled reliability across India.</p>
       <div class="hero__actions">
         <a href="/products.html" class="btn btn--primary btn--lg">Explore Products</a>
         <a href="/contact.html"  class="btn btn--outline btn--lg">Get in Touch</a>
@@ -335,18 +334,27 @@
   </div>
   <div style="overflow:hidden;">
     <div class="ticker-track">
-      <!-- set 1 -->
-      <div class="ticker-card"><img src="/assets/logo-wacker.svg"          alt="Wacker Chemie AG"               style="height:28px; width:auto;"></div>
-      <div class="ticker-card"><img src="/assets/logo-wacker-metroark.svg" alt="Wacker Metroark"                style="height:54px; width:auto;"></div>
-      <div class="ticker-card"><img src="/assets/logo-resil.jpg"           alt="Resil Performance Chemicals"    style="height:38px; width:auto;"></div>
-      <div class="ticker-card"><img src="/assets/logo-resil-agro.png"      alt="Resil Agro Specialty"           style="height:36px; width:auto;"></div>
-      <div class="ticker-card"><img src="/assets/logo-lanya.jpg"           alt="Lanya Chem"                     style="height:52px; width:auto;"></div>
-      <!-- set 2 (duplicate for seamless loop) -->
-      <div class="ticker-card"><img src="/assets/logo-wacker.svg"          alt="Wacker Chemie AG"               style="height:28px; width:auto;"></div>
-      <div class="ticker-card"><img src="/assets/logo-wacker-metroark.svg" alt="Wacker Metroark"                style="height:54px; width:auto;"></div>
-      <div class="ticker-card"><img src="/assets/logo-resil.jpg"           alt="Resil Performance Chemicals"    style="height:38px; width:auto;"></div>
-      <div class="ticker-card"><img src="/assets/logo-resil-agro.png"      alt="Resil Agro Specialty"           style="height:36px; width:auto;"></div>
-      <div class="ticker-card"><img src="/assets/logo-lanya.jpg"           alt="Lanya Chem"                     style="height:52px; width:auto;"></div>
+      <!-- sets 1–4: four duplicates so the track always overfills any viewport -->
+      <div class="ticker-card"><img src="/assets/logo-wacker.svg"          alt="Wacker Chemie AG"            style="height:28px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-wacker-metroark.svg" alt="Wacker Metroark"             style="height:54px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-resil.jpg"           alt="Resil Performance Chemicals" style="height:38px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-resil-agro.png"      alt="Resil Agro Specialty"        style="height:36px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-lanya.jpg"           alt="Lanya Chem"                  style="height:52px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-wacker.svg"          alt="Wacker Chemie AG"            style="height:28px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-wacker-metroark.svg" alt="Wacker Metroark"             style="height:54px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-resil.jpg"           alt="Resil Performance Chemicals" style="height:38px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-resil-agro.png"      alt="Resil Agro Specialty"        style="height:36px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-lanya.jpg"           alt="Lanya Chem"                  style="height:52px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-wacker.svg"          alt="Wacker Chemie AG"            style="height:28px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-wacker-metroark.svg" alt="Wacker Metroark"             style="height:54px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-resil.jpg"           alt="Resil Performance Chemicals" style="height:38px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-resil-agro.png"      alt="Resil Agro Specialty"        style="height:36px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-lanya.jpg"           alt="Lanya Chem"                  style="height:52px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-wacker.svg"          alt="Wacker Chemie AG"            style="height:28px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-wacker-metroark.svg" alt="Wacker Metroark"             style="height:54px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-resil.jpg"           alt="Resil Performance Chemicals" style="height:38px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-resil-agro.png"      alt="Resil Agro Specialty"        style="height:36px;width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-lanya.jpg"           alt="Lanya Chem"                  style="height:52px;width:auto;"></div>
     </div>
   </div>
 </div>
@@ -382,16 +390,13 @@
 }
 @keyframes ticker-scroll {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-25%); }
 }
 </style>
 
 <!-- ── BIG WORDMARK ── -->
-<div id="wordmark-section" style="position:relative;overflow:hidden;background:#030c18;padding:5rem 1rem 4rem;user-select:none;">
-  <canvas id="wordmark-canvas" style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;"></canvas>
-  <div id="wordmark-text" style="position:relative;z-index:2;cursor:crosshair;text-align:center;">
-    <div style="font-family:'Arial Black','Arial Bold',Arial,sans-serif;font-size:clamp(4.5rem,19vw,20rem);font-weight:900;letter-spacing:-0.03em;line-height:0.88;color:#ffffff;">FABREVOL</div>
-  </div>
+<div id="wordmark-section" style="position:relative;overflow:hidden;background:#ffffff;cursor:crosshair;">
+  <canvas id="wordmark-canvas" style="display:block;width:100%;"></canvas>
 </div>
 
 <!-- ── CTA BANNER ── -->
@@ -453,158 +458,150 @@
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="/js/main.js"></script>
 
-<!-- ── WORDMARK CURSOR ATOM EFFECT ── -->
+<!-- ── WORDMARK PARTICLE SHATTER ── -->
 <script>
 (function(){
-  var wc = document.getElementById('wordmark-canvas');
-  var wt = document.getElementById('wordmark-text');
-  if (!wc || !wt) return;
-  var ctx = wc.getContext('2d');
+  var section = document.getElementById('wordmark-section');
+  var canvas  = document.getElementById('wordmark-canvas');
+  if (!canvas || !section) return;
+  var ctx = canvas.getContext('2d');
+
+  var W, H, DPR;
   var particles = [];
-  var trails = [];
-  var W, H;
-  var mouseX = -999, mouseY = -999;
-  var frame = 0;
+  var mx = -9999, my = -9999, hovering = false;
 
-  function resize() {
-    var ws = document.getElementById('wordmark-section');
-    W = wc.width  = ws ? ws.offsetWidth  : window.innerWidth;
-    H = wc.height = ws ? ws.offsetHeight : window.innerHeight;
-  }
+  // Physics constants
+  var SPRING  = 0.048;   // spring coefficient
+  var DAMP    = 0.82;    // velocity damping per frame
+  var REPEL_R = 150;     // repulsion radius (css px)
+  var REPEL_F = 20;      // repulsion peak force
+  var STEP    = 3;       // particle grid spacing (css px)
 
-  function spawnBurst(mx, my, count, speedMult) {
-    for (var i = 0; i < count; i++) {
-      var angle = (i / count) * Math.PI * 2 + Math.random() * 0.4;
-      var speed = (1.8 + Math.random() * 5) * (speedMult || 1);
-      var hue = 185 + Math.random() * 40;
-      var isBig = Math.random() < 0.15;
-      particles.push({
-        x: mx, y: my,
-        vx: Math.cos(angle) * speed,
-        vy: Math.sin(angle) * speed - (speedMult > 1 ? 3 : 1),
-        r: isBig ? (3 + Math.random() * 4) : (1 + Math.random() * 2.5),
-        life: 1,
-        decay: isBig ? 0.008 + Math.random() * 0.01 : 0.014 + Math.random() * 0.022,
-        hue: hue,
-        orbit: isBig ? { r: 6 + Math.random() * 8, speed: 0.08 + Math.random() * 0.12, angle: Math.random() * Math.PI * 2 } : null
-      });
+  // Colour palette
+  var REST_R  = 44,  REST_G  = 78,  REST_B  = 91;   // #2C4E5B at rest
+  var PUSH_R  = 76,  PUSH_G  = 153, PUSH_B  = 180;  // #4C99B4 at peak displacement
+  var GLOW_COLOR = '#4C859B';
+
+  function build() {
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    var sw = section.offsetWidth;
+
+    // Binary-search font size so "FABREVOL" fills ~90 % of width
+    var probe = document.createElement('canvas').getContext('2d');
+    var lo = 10, hi = sw, fs = sw / 2;
+    for (var k = 0; k < 24; k++) {
+      probe.font = '900 ' + fs + 'px "Arial Black","Arial Bold",Arial,sans-serif';
+      (probe.measureText('FABREVOL').width < sw * 0.90 ? (lo = fs) : (hi = fs));
+      fs = (lo + hi) / 2;
+    }
+    fs = Math.round(fs);
+
+    var sh  = Math.round(fs * 1.22);   // section height = 1.22 × font size
+    W = sw; H = sh;
+
+    canvas.width  = sw * DPR;
+    canvas.height = sh * DPR;
+    canvas.style.height = sh + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+
+    // Offscreen rasterise at 1× for sampling
+    var off = document.createElement('canvas');
+    off.width = sw; off.height = sh;
+    var oc = off.getContext('2d');
+    oc.fillStyle = '#000';
+    oc.font = '900 ' + fs + 'px "Arial Black","Arial Bold",Arial,sans-serif';
+    oc.textAlign    = 'center';
+    oc.textBaseline = 'middle';
+    oc.fillText('FABREVOL', sw / 2, sh / 2);
+
+    var data = oc.getImageData(0, 0, sw, sh).data;
+    particles = [];
+    for (var y = 0; y < sh; y += STEP) {
+      for (var x = 0; x < sw; x += STEP) {
+        if (data[(y * sw + x) * 4 + 3] > 80) {
+          particles.push({ ox: x, oy: y, x: x, y: y, vx: 0, vy: 0 });
+        }
+      }
     }
   }
 
-  function spawnTrail(mx, my) {
-    trails.push({
-      x: mx, y: my,
-      r: 1.5 + Math.random() * 2,
-      life: 0.6,
-      decay: 0.055,
-      hue: 190 + Math.random() * 25
-    });
-  }
+  function frame() {
+    // 1. Physics update
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      // Spring force toward origin
+      p.vx += (p.ox - p.x) * SPRING;
+      p.vy += (p.oy - p.y) * SPRING;
+      // Cursor repulsion (cubic ease-out falloff)
+      if (hovering) {
+        var dx = p.x - mx, dy = p.y - my;
+        var d2 = dx*dx + dy*dy;
+        if (d2 < REPEL_R * REPEL_R && d2 > 0.25) {
+          var d   = Math.sqrt(d2);
+          var inv = 1 - d / REPEL_R;
+          var f   = REPEL_F * inv * inv * inv;
+          p.vx += (dx / d) * f;
+          p.vy += (dy / d) * f;
+        }
+      }
+      p.vx *= DAMP; p.vy *= DAMP;
+      p.x  += p.vx; p.y  += p.vy;
+    }
 
-  var raf;
-  function loop() {
-    frame++;
+    // 2. Draw
     ctx.clearRect(0, 0, W, H);
-
-    // Subtle dark background
-    ctx.fillStyle = '#030c18';
+    ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, W, H);
 
-    // Ambient glow near cursor
-    if (mouseX > 0) {
-      var ag = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 90);
-      ag.addColorStop(0, 'rgba(126,200,227,0.07)');
-      ag.addColorStop(1, 'rgba(126,200,227,0)');
-      ctx.fillStyle = ag;
-      ctx.fillRect(0, 0, W, H);
-    }
-
-    // Draw trails
-    for (var i = trails.length - 1; i >= 0; i--) {
-      var t = trails[i];
-      t.life -= t.decay;
-      if (t.life <= 0) { trails.splice(i, 1); continue; }
-      ctx.beginPath();
-      ctx.arc(t.x, t.y, t.r * t.life, 0, Math.PI * 2);
-      ctx.fillStyle = 'hsla(' + t.hue + ',70%,70%,' + (t.life * 0.5) + ')';
-      ctx.fill();
-    }
-
-    // Draw particles
-    for (var i = particles.length - 1; i >= 0; i--) {
+    // Glow pass — only for displaced particles, uses shadow
+    ctx.save();
+    ctx.shadowColor = GLOW_COLOR;
+    ctx.shadowBlur  = 14;
+    for (var i = 0; i < particles.length; i++) {
       var p = particles[i];
-      p.x += p.vx;
-      p.y += p.vy;
-      p.vy += 0.09;
-      p.vx *= 0.985;
-      p.life -= p.decay;
-      if (p.life <= 0) { particles.splice(i, 1); continue; }
-
-      var px = p.x, py = p.y;
-
-      // Orbiting electron
-      if (p.orbit) {
-        p.orbit.angle += p.orbit.speed;
-        var ex = px + Math.cos(p.orbit.angle) * p.orbit.r * p.life;
-        var ey = py + Math.sin(p.orbit.angle) * p.orbit.r * p.life;
-        // orbit ring
-        ctx.beginPath();
-        ctx.ellipse(px, py, p.orbit.r * p.life, p.orbit.r * 0.35 * p.life, p.orbit.angle * 0.3, 0, Math.PI * 2);
-        ctx.strokeStyle = 'hsla(' + p.hue + ',70%,65%,' + (p.life * 0.25) + ')';
-        ctx.lineWidth = 0.8;
-        ctx.stroke();
-        // electron dot
-        ctx.beginPath();
-        ctx.arc(ex, ey, 1.5, 0, Math.PI * 2);
-        ctx.fillStyle = 'hsla(' + p.hue + ',90%,90%,' + p.life + ')';
-        ctx.fill();
-      }
-
-      // Glow halo
-      var gr = ctx.createRadialGradient(px, py, 0, px, py, p.r * 5);
-      gr.addColorStop(0,   'hsla(' + p.hue + ',80%,85%,' + (p.life * 0.85) + ')');
-      gr.addColorStop(0.3, 'hsla(' + p.hue + ',70%,65%,' + (p.life * 0.45) + ')');
-      gr.addColorStop(1,   'hsla(' + p.hue + ',60%,50%,0)');
+      var ddx = p.x - p.ox, ddy = p.y - p.oy;
+      var disp = Math.sqrt(ddx*ddx + ddy*ddy);
+      if (disp < 3) continue;
+      var t = Math.min(1, disp / 60);
       ctx.beginPath();
-      ctx.arc(px, py, p.r * 5, 0, Math.PI * 2);
-      ctx.fillStyle = gr;
+      ctx.arc(p.x, p.y, 1.0 + t * 2.2, 0, 6.283185);
+      ctx.fillStyle = 'rgba(76,133,155,' + (t * 0.75) + ')';
       ctx.fill();
+    }
+    ctx.restore();
 
-      // Core
+    // Core pass — all particles, no shadow
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      var ddx2 = p.x - p.ox, ddy2 = p.y - p.oy;
+      var disp2 = Math.sqrt(ddx2*ddx2 + ddy2*ddy2);
+      var t2 = Math.min(1, disp2 / 55);
+
+      var r2 = Math.round(REST_R + (PUSH_R - REST_R) * t2);
+      var g2 = Math.round(REST_G + (PUSH_G - REST_G) * t2);
+      var b2 = Math.round(REST_B + (PUSH_B - REST_B) * t2);
+      var sz = 1.1 + t2 * 1.6;
+
       ctx.beginPath();
-      ctx.arc(px, py, p.r * p.life, 0, Math.PI * 2);
-      ctx.fillStyle = 'hsla(' + p.hue + ',90%,95%,' + p.life + ')';
+      ctx.arc(p.x, p.y, sz, 0, 6.283185);
+      ctx.fillStyle = 'rgb(' + r2 + ',' + g2 + ',' + b2 + ')';
       ctx.fill();
     }
 
-    raf = requestAnimationFrame(loop);
+    requestAnimationFrame(frame);
   }
 
-  var lastSpawn = 0;
-  wt.addEventListener('mousemove', function(e) {
-    var rect = document.getElementById('wordmark-section').getBoundingClientRect();
-    mouseX = e.clientX - rect.left;
-    mouseY = e.clientY - rect.top;
-    spawnTrail(mouseX, mouseY);
-    var now = Date.now();
-    if (now - lastSpawn > 30) {
-      spawnBurst(mouseX, mouseY, 10, 1);
-      lastSpawn = now;
-    }
+  section.addEventListener('mousemove', function(e) {
+    var r = section.getBoundingClientRect();
+    mx = e.clientX - r.left; my = e.clientY - r.top; hovering = true;
   });
+  section.addEventListener('mouseleave', function() { hovering = false; mx = -9999; my = -9999; });
 
-  wt.addEventListener('mouseleave', function() { mouseX = -999; mouseY = -999; });
+  var rt;
+  window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(build, 220); });
 
-  wt.addEventListener('click', function(e) {
-    var rect = document.getElementById('wordmark-section').getBoundingClientRect();
-    var mx = e.clientX - rect.left;
-    var my = e.clientY - rect.top;
-    spawnBurst(mx, my, 120, 2.5);
-  });
-
-  resize();
-  window.addEventListener('resize', resize);
-  loop();
+  build();
+  frame();
 })();
 </script>
 
