@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 90" width="220" height="90">
-  <!-- WACKER bordered box -->
-  <rect x="3" y="3" width="214" height="44" rx="5" ry="5" fill="none" stroke="#555" stroke-width="3"/>
-  <text x="110" y="33" font-family="'Arial Black','Arial Bold',Arial,sans-serif" font-size="24" font-weight="900" fill="#444" text-anchor="middle" letter-spacing="3">WACKER</text>
-  <!-- metroark below -->
-  <text x="110" y="72" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="300" text-anchor="middle" letter-spacing="1">
-    <tspan fill="#555" font-weight="500">metro</tspan><tspan fill="#aaa" font-weight="300">ark</tspan>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 78" width="200" height="78">
+  <!-- WACKER bordered box — matches Wacker brand navy #000037 -->
+  <rect x="2" y="2" width="196" height="40" rx="4" ry="4" fill="none" stroke="#000037" stroke-width="2.8"/>
+  <text x="100" y="29" font-family="'Arial Black','Arial Bold',Arial,sans-serif" font-size="22" font-weight="900" fill="#000037" text-anchor="middle" letter-spacing="3">WACKER</text>
+  <!-- metroark — dark gray, lighter weight -->
+  <text x="100" y="64" font-family="Arial,Helvetica,sans-serif" font-size="19" text-anchor="middle" letter-spacing="0.5">
+    <tspan fill="#444" font-weight="600">metro</tspan><tspan fill="#999" font-weight="300">ark</tspan>
   </text>
 </svg>

@@ -323,16 +323,18 @@
   </div>
   <div style="overflow:hidden;">
     <div class="ticker-track">
-      <img src="/assets/logo-wacker.svg"           alt="Wacker Chemie AG" class="ticker-logo">
-      <img src="/assets/logo-wacker-metroark.svg"  alt="Wacker Metroark" class="ticker-logo">
-      <img src="/assets/logo-resil.jpg"            alt="Resil Performance Chemicals" class="ticker-logo ticker-logo--bg">
-      <img src="/assets/logo-resil-agro.png"       alt="Resil Agro Specialty Ingredients" class="ticker-logo ticker-logo--bg">
-      <img src="/assets/logo-lanya.jpg"            alt="Lanya Chem" class="ticker-logo ticker-logo--bg">
-      <img src="/assets/logo-wacker.svg"           alt="Wacker Chemie AG" class="ticker-logo">
-      <img src="/assets/logo-wacker-metroark.svg"  alt="Wacker Metroark" class="ticker-logo">
-      <img src="/assets/logo-resil.jpg"            alt="Resil Performance Chemicals" class="ticker-logo ticker-logo--bg">
-      <img src="/assets/logo-resil-agro.png"       alt="Resil Agro Specialty Ingredients" class="ticker-logo ticker-logo--bg">
-      <img src="/assets/logo-lanya.jpg"            alt="Lanya Chem" class="ticker-logo ticker-logo--bg">
+      <!-- set 1 -->
+      <div class="ticker-card"><img src="/assets/logo-wacker.svg"          alt="Wacker Chemie AG"               style="height:28px; width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-wacker-metroark.svg" alt="Wacker Metroark"                style="height:54px; width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-resil.jpg"           alt="Resil Performance Chemicals"    style="height:38px; width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-resil-agro.png"      alt="Resil Agro Specialty"           style="height:36px; width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-lanya.jpg"           alt="Lanya Chem"                     style="height:52px; width:auto;"></div>
+      <!-- set 2 (duplicate for seamless loop) -->
+      <div class="ticker-card"><img src="/assets/logo-wacker.svg"          alt="Wacker Chemie AG"               style="height:28px; width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-wacker-metroark.svg" alt="Wacker Metroark"                style="height:54px; width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-resil.jpg"           alt="Resil Performance Chemicals"    style="height:38px; width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-resil-agro.png"      alt="Resil Agro Specialty"           style="height:36px; width:auto;"></div>
+      <div class="ticker-card"><img src="/assets/logo-lanya.jpg"           alt="Lanya Chem"                     style="height:52px; width:auto;"></div>
     </div>
   </div>
 </div>
@@ -340,30 +342,32 @@
 .ticker-track {
   display: flex;
   align-items: center;
-  gap: 5rem;
+  gap: 2.5rem;
   width: max-content;
   padding: 0 2.5rem;
-  animation: ticker-scroll 24s linear infinite;
+  animation: ticker-scroll 26s linear infinite;
 }
-.ticker-logo {
-  height: 44px;
-  width: auto;
-  object-fit: contain;
+.ticker-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 12px 22px;
   flex-shrink: 0;
-  filter: brightness(0) invert(1);
-  opacity: 0.65;
-  transition: opacity 0.3s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  opacity: 0.92;
+  transition: opacity 0.3s, transform 0.3s;
 }
-.ticker-logo--bg {
-  height: 40px;
-  background: white;
-  border-radius: 6px;
-  padding: 5px 10px;
-  filter: none;
-  opacity: 0.85;
+.ticker-card:hover {
+  opacity: 1;
+  transform: translateY(-2px);
 }
-.ticker-logo:hover { opacity: 1; }
-.ticker-logo--bg:hover { opacity: 1; }
+.ticker-card img {
+  display: block;
+  object-fit: contain;
+  max-width: 160px;
+}
 @keyframes ticker-scroll {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
